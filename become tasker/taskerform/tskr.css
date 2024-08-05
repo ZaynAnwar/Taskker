@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+body::-webkit-scrollbar{
+    background-color: #fff;
+    width: .55vw;
+}
+body::-webkit-scrollbar-thumb{
+    width: .55vw;
+    border-radius: 10px;
+    background-color: #14a800;
+}
+
+
+  .container {
+    width: 100%;
+    height: 150vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .main{
+    width: 100%;
+    height: 15vh;
+    background-color: #14a800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: fixed;
+  }
+  
+  form {
+    height: 150vh;
+    width: 80%;
+    background-color: #fff;
+    /* color: #000; */
+
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #profileImage{
+    height: 10vh;
+    width: 100%;
+    color: #14a800;
+    background-color: #fff;
+}
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  button,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #14a800;
+    border-radius: 5px;
+  }
+  
+  .progress-bar {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 2vh;
+    margin-bottom: 20px;
+  }
+  
+  .progress {
+    background-color: #007bff;
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Task</title>
+<link rel="stylesheet" href="find task.css">
+</head>
+<body>
+
+<header>
+    <div class="right">       
+        <h1>Find Task</h1>
+    </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile.html">My Profile</a></li>
+      <li><a href="logout.html">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <section class="filters">
+    <h2>Filters</h2>
+    <label for="category">Category:</label>
+    <select id="category">
+      <option value="">All</option>
+      <option value="cleaning">Cleaning</option>
+      <option value="gardening">Gardening</option>
+      <!-- Add more options as needed -->
+    </select>
+    <label for="location">Location:</label>
+    <input type="text" id="location" placeholder="Enter location">
+    <button id="applyFilters">Apply Filters</button>
+  </section>
+
+  <section class="task-listings">
+    <h2>Available Tasks</h2>
+    <div id="taskList">
+      <!-- Task listings will be dynamically added here -->
+    </div>
+  </section>
+
+  <aside class="service-provider-listings">
+    <h2>Available Service Providers</h2>
+    <div id="serviceProviderList">
+      <!-- Service provider listings will be dynamically added here -->
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>&copy; 2024 Find Task. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+body::-webkit-scrollbar {
+  background-color: #fff;
+  width: 0.55vw;
+}
+body::-webkit-scrollbar-thumb {
+  width: 0.55vw;
+  border-radius: 10px;
+  background-color: #14a800;
+}
+.main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.left {
+  height: 120vh;
+  width: 30vw;
+  padding-top: 20vh;
+  padding-left: 10vh;
+  position: fixed;
+}
+.left h1 {
+  color: #54604c;
+}
+.leftin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+  gap: 3vh;
+}
+.leftin a:nth-child(1) {
+  text-decoration: none;
+  color: #14a800;
+  padding-left: 3vh;
+  pointer-events: all;
+}
+.leftin a:nth-child(2) {
+  text-decoration: none;
+  padding-left: 3vh;
+  pointer-events: all;
+}
+.leftin a {
+  text-decoration: none;
+  color: #5e6d55d7;
+  padding-left: 3vh;
+  pointer-events: none;
+}
+.leftin a:nth-child(2) {
+  background: linear-gradient(to right, #14a800e5, transparent);
+  color: #fff;
+}
+form{
+  height: 130vh;
+  width: 70vw;
+  margin-top: 5vh;
+  margin-left: 30vw;
+  padding-top: 10vh;
+}
+.right h1 {
+  font-size: 8vh;
+  color: #54604c;
+}
+.right h4 {
+  font-size: 3.5vh;
+  color: #5e6d55d7;
+  margin-top: 8vh;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type="text"] {
+  background-color: #f1f1f1;
+  width: 40vw;
+  height: 10vh;
+  margin-top: 3vh;
+  border: 2px solid #14a800;
+  border-radius: 5px;
+  font-size: 2.5vh;
+  font-weight: 100;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #dadada;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #14a800 !important;
+  color: #fff;
+}
+.right .check {
+  margin-top: 5vh;
+}
+.check .cn {
+  color: #5e6d55d7;
+  display: flex;
+  gap: 2vh;
+}
+#map {
+  display: none;
+  z-index: 1;
+  height: 300px;
+  width: 600px;
+  border: 2px solid #14a800;
+  border-radius: 5px;
+  margin-top: 2vh;
+  margin-bottom: 30vh;
+}
+
+.right .btnright {
+  height: 10vh;
+  width: 70vw;
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.right .btnright .btns {
+  height: 6vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.right .btnright .btns button {
+  height: 6vh;
+  width: 20vw;
+  font-size: 3vh;
+  background-color: #14a800;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.right .btnright .btns button:hover {
+  background-color: #14a800e5;
+}
+.right .btnright .btns button:nth-child(1) {
+  height: 6vh;
+  width: 20vw;
+  font-size: 3vh;
+  background-color: #dadada;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.right .btnright .btns button:nth-child(1):hover a{
+  background-color: #dadada;
+  border: 2px solid #14a800;
+}
+.right .btnright .btns button:nth-child(1) a {
+  color: #14a800;
+}
+.right .btnright .btns button a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  border: none;
+  height: 6vh;
+  width: 20vw;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sub{
+  height: 6vh;
+  width: 20vw;
+}
+#sub input[type="submit"]{
+  height: 6vh;
+  width: 20vw;
+  font-size: 3vh;
+  background-color: #14a800;
+  border: none;
+  padding: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#sub input[type="submit"]:hover {
+  background-color: #14a800e5;
+}

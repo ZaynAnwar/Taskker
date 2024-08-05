@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+body::-webkit-scrollbar{
+    background-color: #fff;
+    width: .55vw;
+}
+body::-webkit-scrollbar-thumb{
+    width: .55vw;
+    border-radius: 10px;
+    background-color: #14a800;
+}
+.main{
+    height: 120vh;
+    width: 100%;
+    display: flex;
+}
+.left{
+    height: 120vh;
+    width: 30vw;
+    padding-top: 20vh;
+    padding-left: 10vh;
+    position: fixed;
+}
+.left h1{
+    color: #54604c;
+}
+.leftin{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    gap: 3vh;
+}
+.leftin a:nth-child(1){
+    text-decoration: none;
+    color: #5e6d55d7;
+    padding-left: 3vh;
+    pointer-events: all;
+}
+.leftin a{
+    text-decoration: none;
+    color: #5e6d55d7;
+    padding-left: 3vh;
+    pointer-events: none;
+}
+.leftin a:nth-child(1){
+    background: linear-gradient( to right, #14a800e5, transparent);
+    color: #fff;
+}
+form{
+    height: 130vh;
+    width: 70vw;
+    margin-top: 5vh;
+    margin-left: 30vw;  
+    padding-top: 10vh;
+}
+.right h1{
+    font-size: 8vh;
+    color: #54604c;
+}
+.right h4{
+    font-size: 3.5vh;
+    color: #5e6d55d7;
+    margin-top: 8vh;
+}
+.right .text{
+    border: 2px solid #14a800;
+    font-size: 2.5vh;
+    font-weight: 100;
+    padding: 2vh;
+    border-radius: 5px;
+    margin-top: 3vh;
+    width: 40vw;
+    height: 10vh;
+    color: #5e6d55d7;
+}
+.right .text::placeholder {
+    color: #5e6d55d7;
+}
+.right .check{
+    margin-top: 5vh;
+    display: none;
+}
+.check .cn{
+    color: #5e6d55d7;
+    display: flex;
+    gap: 2vh;
+}
+fieldset{
+    height: 20vh;
+    padding: 0;
+    border: none;
+    margin-top: 2vh;
+}
+#errorMessages{
+    color: #14a800;
+    margin: 0;
+}
+.right .btns{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+/* .right .btns .btnin{
+    margin-top: 3vh;
+} */
+.right .btnin button input{
+    border: none;
+    color: #5e6d55d7;
+    cursor: pointer;
+}
+.right .btnin button:hover input{
+    border: none;
+    color: #54604c;
+}
+.right .btnin button{
+    height: 5vh;
+    width: 9.2vw;
+    border: 2px solid #14a800;
+    border-radius: 5px;
+    width: 20vw;
+    font-size: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    color: #5e6d55d7;
+    cursor: pointer;
+}
+.right .btnin button:hover{
+    color: #54604c;
+}
+.right .extra{
+    width: 40vw;
+    height: 20vh;
+    display: none;
+    margin-top: 3vh;
+}
+.right .extra .extrain{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+}
+.right .extra .extrain #demo,#demo1,#demo2,#demo3{
+    width: 23%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    border: none;
+    border-radius: 2vh;
+    cursor: pointer;
+}
+.right .extra .extrain #demo.pressed,#demo1.pressed,#demo2.pressed,#demo3.pressed{
+    background-color: #e4ebe4;
+    border: 2px solid #14a800;
+}
+.right .extra .extrain .box i{
+    font-size: 5vh;
+    font-weight: 100;
+    color: #14a800e5;
+}
+.right .extra .extrain .box:hover{
+    background-color: #e4ebe4;
+}
+.right .extra .extrain .box h1{
+    font-size: 3.5vh;
+    color: #54604c;
+    font-weight: 600;
+}
+.right .extra .extrain .box h4{
+    font-size: 2.5vh;
+    color: #5e6d55d7;
+    margin: 0vh;
+    font-weight: 100;
+}
+.right .btnout{
+    height: 10vh;
+    width: 100vh;
+    background-color:#fff;
+    position: fixed;
+    bottom: 0vh;
+    display: flex;
+    align-items: center;
+}
+/* .right .btnright button{
+    height: 6vh;
+    width: 40vw;
+    font-size: 3vh;
+    background-color: #14a800;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 2vh;
+}
+.right .btnright button:hover{
+    background-color: #14a800e5;
+}
+.right .btnright button a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    height: 6vh;
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+#sub{
+    height: 6vh;
+    width: 40vw;
+  }
+  #sub input[type="submit"]{
+    height: 6vh;
+    width: 40vw;
+    font-size: 3vh;
+    background-color: #14a800;
+    border: none;
+    padding: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #sub input[type="submit"]:hover {
+    background-color: #14a800e5;
+  }
