@@ -11,129 +11,141 @@ body {
   width: 100%;
   background-color: #fff;
 }
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   background-color: #fff;
-  width: .55vw;
+  width: 0.55vw;
 }
-body::-webkit-scrollbar-thumb{
-  width: .55vw;
+body::-webkit-scrollbar-thumb {
+  width: 0.55vw;
   border-radius: 10px;
   background-color: #14a800;
 }
 
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
-  
-  .container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .container h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #54604c;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    color: #54604c;
-  }
-  
-  .form-group input {
-    width: 96%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #14a800e5;
-    color: #5e6d55d7;
-  }
-  
-  .email {
-    color: #5e6d55d7;
-  }
-  
-  .form-group button {
-    width: 100%;
-    padding: 10px;
-    /* background-color: #14a800; */
-    background-color: #14a800e5;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .form-group button:hover {
-    /* background-color: #14a800e5; */
-    background-color: #14a800;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
 
-  }
-  
-  .or-separator {
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  
-  .or-separator::before,
-  .or-separator::after {
-    content: '';
-    display: inline-block;
-    width: 40%;
-    border-top: 1px solid #ccc;
-    position: absolute;
-    top: 50%;
-  }
-  
-  .or-separator::before {
-    right: 5%;
-    margin-right: 10px;
-  }
-  
-  .or-separator::after {
-    left: 5%;
-    margin-left: 10px;
-  }
-  
-  /* .social-login {
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #54604c;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #54604c;
+}
+
+.form-group input {
+  width: 96%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #14a800e5;
+  color: #5e6d55d7;
+}
+
+.email {
+  color: #5e6d55d7;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  /* background-color: #14a800; */
+  background-color: #14a800e5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  /* background-color: #14a800e5; */
+  background-color: #14a800;
+}
+
+.or-separator {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.or-separator::before,
+.or-separator::after {
+  content: "";
+  display: inline-block;
+  width: 40%;
+  border-top: 1px solid #ccc;
+  position: absolute;
+  top: 50%;
+}
+
+.or-separator::before {
+  right: 5%;
+  margin-right: 10px;
+}
+
+.or-separator::after {
+  left: 5%;
+  margin-left: 10px;
+}
+
+/* .social-login {
     text-align: center;
   } */
-  
-  .social-login button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
+
+.social-login button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.social-login button.google {
+  color: #db4437;
+  border: 1px solid #db4437;
+  /* color: #14a800; */
+}
+
+.social-login button.facebook {
+  color: #4267b2;
+  border: 1px solid #4267b2;
+  /* color: #fff; */
+}
+
+.social-login button.apple {
+  color: #000;
+  border: 1px solid #000;
+}
+
+
+
+@media (max-width: 575px){
+  body{
+    display: flex;
+    align-items: center;
   }
-  
-  .social-login button.google {
-    color: #db4437;
-    border: 1px solid #db4437;
-    /* color: #14a800; */
+}
+@media (min-width: 576px) and (max-width: 769px) {
+  body{
+    display: flex;
+    align-items: center;
   }
-  
-  .social-login button.facebook {
-    color: #4267B2;
-    border: 1px solid #4267B2;
-    /* color: #fff; */
-  }
-  
-  .social-login button.apple {
-    color: #000;
-    border: 1px solid #000;
-  }
-  
+}
