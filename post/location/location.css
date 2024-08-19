@@ -64,7 +64,7 @@ body::-webkit-scrollbar-thumb {
   background: linear-gradient(to right, #14a800e5, transparent);
   color: #fff;
 }
-form{
+form {
   height: 130vh;
   width: 70vw;
   margin-top: 5vh;
@@ -185,7 +185,7 @@ input[type="text"] {
   border-radius: 50px;
   cursor: pointer;
 }
-.right .btnright .btns button:nth-child(1):hover a{
+.right .btnright .btns button:nth-child(1):hover a {
   background-color: #dadada;
   border: 2px solid #14a800;
 }
@@ -205,11 +205,11 @@ input[type="text"] {
   justify-content: center;
 }
 
-#sub{
+#sub {
   height: 6vh;
   width: 20vw;
 }
-#sub input[type="submit"]{
+#sub input[type="submit"] {
   height: 6vh;
   width: 20vw;
   font-size: 3vh;
@@ -225,4 +225,504 @@ input[type="text"] {
 }
 #sub input[type="submit"]:hover {
   background-color: #14a800e5;
+}
+
+@media (max-width: 480px) {
+  .main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .left-up {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 100%;
+    z-index: 98;
+    background-color: #fff;
+  }
+  .left {
+    height: 22vh;
+    width: 90%;
+    box-shadow: 2px #54604c;
+    border-radius: 10px;
+    padding: 0 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5vh;
+    box-shadow: 0.5px 0.5px 10px #14a800e5;
+  }
+  .left h1 {
+    color: #54604c;
+    font-size: 5vh;
+    font-weight: 900;
+  }
+  .leftin {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0vh 0;
+    gap: 0.5vh;
+    font-size: 20px;
+    font-weight: 100;
+  }
+  .leftin a:nth-child(1) {
+    text-decoration: none;
+    color: #14a800;
+    padding-left: 0vh;
+    pointer-events: all;
+  }
+  .leftin a:nth-child(2) {
+    text-decoration: none;
+    color: #14a800;
+    padding-left: 0vh;
+    pointer-events: all;
+  }
+  .leftin a:nth-child(3) {
+    text-decoration: none;
+    padding-left: 0vh;
+    pointer-events: none;
+  }
+  .leftin a:nth-child(4) {
+    text-decoration: none;
+    width: 100%;
+    padding-left: 0vh;
+    pointer-events: none;
+  }
+  .leftin a {
+    text-decoration: none;
+    color: #5e6d55d7;
+    padding-left: 3vh;
+    pointer-events: none;
+  }
+  .leftin a:nth-child(2) {
+    background: linear-gradient(to right, #14a800e5, transparent);
+    color: #fff;
+  }
+
+  form {
+    height: 130vh;
+    width: 100%;
+    margin-top: 5vh;
+    margin-left: 0vw;
+    padding-top: 0vh;
+  }
+  .right {
+    height: auto;
+    width: 100%;
+    padding: 2vh;
+    flex-direction: column;
+    padding-top: 0%;
+    margin: 0%;
+    z-index: 90;
+    position: relative;
+    top: 47%;
+  }
+  .right h1 {
+    font-size: 6vh;
+    font-weight: 900;
+    line-height: 60px;
+    color: #54604c;
+  }
+  .right h4 {
+    font-size: 3vh;
+    color: #5e6d55d7;
+    font-weight: 600;
+    margin-top: 3vh;
+  }
+  .autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 12vh;
+  }
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 50px;
+  }
+  input[type="text"] {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 6vh;
+    border: 2px solid #14a800;
+    border-radius: 5px;
+    font-size: 2vh;
+    font-weight: 100;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #dadada;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: #14a800 !important;
+    color: #fff;
+  }
+  .right .check {
+    margin-top: 0vh;
+  }
+  .check .cn {
+    font-size: 20px;
+    color: #5e6d55d7;
+    display: flex;
+    gap: 2vh;
+  }
+  #chb {
+    height: 20px;
+    width: 20px;
+  }
+  #map {
+    display: none;
+    z-index: 1;
+    height: 200px;
+    width: 100%;
+    border: 2px solid #14a800;
+    border-radius: 5px;
+    margin-top: 2vh;
+    margin-bottom: 30vh;
+  }
+
+  .right .btnright {
+    height: 10vh;
+    width: 92%;
+    position: fixed;
+    z-index: 9;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right .btnright .btns {
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .right .btnright .btns button {
+    height: 6vh;
+    font-size: 3vh;
+    background-color: #14a800;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .right .btnright .btns button:hover {
+    background-color: #14a800e5;
+  }
+  .right .btnright .btns button:nth-child(1) {
+    height: 6vh;
+    width: 100%;
+    font-size: 3vh;
+    background-color: #dadada;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .right .btnright .btns button:nth-child(1):hover a {
+    background-color: #dadada;
+    border: 2px solid #14a800;
+  }
+  .right .btnright .btns button:nth-child(1) a {
+    color: #14a800;
+  }
+  .right .btnright .btns button a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    border: none;
+    height: 6vh;
+    width: 100%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #sub {
+    height: 6vh;
+    width: 100%;
+  }
+  #sub input[type="submit"] {
+    height: 6vh;
+    width: 100%;
+    font-size: 3vh;
+    background-color: #14a800;
+    border: none;
+    padding: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #sub input[type="submit"]:hover {
+    background-color: #14a800e5;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+  .main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+  }
+  .left {
+    height: 120vh;
+    width: 30vw;
+    padding-top: 25vh;
+    padding-left: 1vh;
+    position: fixed;
+  }
+  .left h1 {
+    color: #54604c;
+    font-size: 3vh;
+    font-weight: 900;
+  }
+  .leftin {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    gap: 1vh;
+  }
+  .leftin a:nth-child(1) {
+    text-decoration: none;
+    color: #14a800;
+    padding-left: 3vh;
+    pointer-events: all;
+  }
+  .leftin a:nth-child(2) {
+    text-decoration: none;
+    color: #14a800;
+    padding-left: 3vh;
+    pointer-events: all;
+  }
+  .leftin a:nth-child(3) {
+    text-decoration: none;
+    padding-left: 3vh;
+    pointer-events: none;
+  }
+  .leftin a:nth-child(4) {
+    text-decoration: none;
+    width: 100%;
+    padding-left: 3vh;
+    pointer-events: none;
+  }
+  .leftin a {
+    text-decoration: none;
+    color: #5e6d55d7;
+    padding-left: 3vh;
+    pointer-events: none;
+    font-size: 1.7vh;
+    font-weight: 900;
+  }
+  .leftin a:nth-child(2) {
+    background: linear-gradient(to right, #14a800e5, transparent);
+    color: #fff;
+  }
+  form {
+    height: 90vh;
+    width: 70vw;
+    margin-top: 5vh;
+    margin-left: 32vw;
+    padding-top: 5vh;
+  }
+  .right h1 {
+    font-size: 6vh;
+    font-weight: 900;
+    line-height: 60px;
+    color: #54604c;
+  }
+  .right h4 {
+    font-size: 2.8vh;
+    color: #5e6d55d7;
+    margin-top: 3vh;
+  }
+
+  .autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    height: 12vh;
+  }
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 50px;
+  }
+  input[type="text"] {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 6vh;
+    border: 2px solid #14a800;
+    border-radius: 5px;
+    font-size: 2vh;
+    font-weight: 100;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #dadada;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: #14a800 !important;
+    color: #fff;
+  }
+  .right .check {
+    margin-top: 0vh;
+  }
+  .check .cn {
+    font-size: 20px;
+    color: #5e6d55d7;
+    display: flex;
+    gap: 2vh;
+  }
+  #chb {
+    height: 20px;
+    width: 20px;
+  }
+  #map {
+    display: none;
+    z-index: 1;
+    height: 300px;
+    width: 95%;
+    border: 2px solid #14a800;
+    border-radius: 5px;
+    margin-top: 2vh;
+    margin-bottom: 30vh;
+  }
+
+  .right .btnright {
+    height: 10vh;
+    width: 96%;
+    position: fixed;
+    z-index: 9;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right .btnright .btns {
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .right .btnright .btns button {
+    height: 4vh;
+    font-size: 2.5vh;
+    background-color: #14a800;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .right .btnright .btns button:hover {
+    background-color: #14a800e5;
+  }
+  .right .btnright .btns button:nth-child(1) {
+    height: 4vh;
+    width: 50%;
+ 
+    background-color: #dadada;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .right .btnright .btns button:nth-child(1):hover a {
+    background-color: #dadada;
+    border: 2px solid #14a800;
+  }
+  .right .btnright .btns button:nth-child(1) a {
+    color: #14a800;
+    font-size: 2.5vh;
+    height: 4vh;
+  }
+  .right .btnright .btns button a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    border: none;
+    height: 6vh;
+    width: 100%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  #sub {
+    height: 4vh;
+    width: 100%;
+  }
+  #sub input[type="submit"] {
+    height: 4vh;
+    width: 50%;
+    font-size: 2.5vh;
+    background-color: #14a800;
+    border: none;
+    padding: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #sub input[type="submit"]:hover {
+    background-color: #14a800e5;
+  }
 }
