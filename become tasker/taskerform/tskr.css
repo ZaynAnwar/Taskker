@@ -20,182 +20,91 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #14a800;
 }
-.main {
-  height: 100vh;
+
+.container {
   width: 100%;
+  height: 150vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-left: 10vh;
-  padding-right: 10vh;
-}
-.right {
-  height: 80vh;
-  width: 45%;
-  display: flex;
+  justify-content: center;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: center;
-  gap: 5vh;
 }
-.right h1 {
+
+.main {
+  width: 100%;
+  height: 15vh;
+  background-color: #14a800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: fixed;
+}
+
+form {
+  height: 150vh;
+  width: 80%;
+  background-color: #fff;
+  /* color: #000; */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#profileImage {
+  height: 10vh;
+  width: 100%;
   color: #14a800;
-  font-size: 10vh;
+  background-color: #fff;
 }
-.right h4 {
-  color: #54604c;
-  font-size: 3vh;
-  font-weight: 100;
-}
-.right a {
-  height: 7vh;
-  width: 11vw;
-  background-color: #14a800;
-  color: #fff;
-  font-size: 2.5vh;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+button,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #14a800;
   border-radius: 5px;
 }
-.left {
-  height: 70vh;
-  width: 45%;
-  border: 2px solid #14a800;
-  border-radius: 5vh;
+
+.progress-bar {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 2vh;
+  margin-bottom: 20px;
 }
 
-
-
-
-
-
-
-
-@media (max-width: 480px) {
-  .main {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3vh;
-    margin: 0;
-  }
-  .right {
-    height: 30vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2vh;
-    padding-top: 1vh;
-  }
-  .right h1 {
-    color: #14a800;
-    font-size: 4.1vh;
-    font-weight: 900;
-    line-height: 40px;
-  }
-  .right h4 {
-    color: #54604c;
-    font-size: 2vh;
-  }
-  .right a {
-    height: 4vh;
-    width: 100%;
-    border-radius: 50px;
-    background-color: #14a800;
-    color: #fff;
-    font-size: 2.5vh;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-  .left {
-    height: 70vh;
-    width: 100%;
-    border: 2px solid #14a800;
-    border-radius: 5vh;
-  }
+.progress {
+  background-color: #14a800;
+  height: 100%;
+  width: 0;
+  transition: width 0.5s ease;
 }
 
-
-
-@media (min-width: 481px) and (max-width: 900px) {
-  .main {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3vh;
-    margin: 0;
-  }
-  .right {
-    height: 30vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2vh;
-    padding-top: 1vh;
-  }
-  .right h1 {
-    color: #14a800;
-    font-size: 4.1vh;
-    font-weight: 900;
-    line-height: 40px;
-  }
-  .right h4 {
-    color: #54604c;
-    font-size: 2vh;
-  }
-  .right a {
-    height: 4vh;
-    width: 100%;
-    border-radius: 50px;
-    background-color: #14a800;
-    color: #fff;
-    font-size: 2.5vh;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-  .left {
-    height: 70vh;
-    width: 100%;
-    border: 2px solid #14a800;
-    border-radius: 5vh;
-  }
-}
-@media (min-width: 901px) and (max-width: 1150px) {
- 
-.right a {
-  height: 7vh;
-  width: 15vw;
+button {
   background-color: #14a800;
   color: #fff;
-  font-size: 2.5vh;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
-.left {
-  height: 70vh;
-  width: 45%;
-  border: 2px solid #14a800;
-  border-radius: 5vh;
+
+button:hover {
+  background-color: #14a800e6;
 }
+
+
+@media (max-width: 480px){
+  .container {
+    width: 100%;
+    height: 100vh;
+  }
 }
