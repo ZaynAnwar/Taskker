@@ -26,6 +26,34 @@ body {
   background-color: #f4f4f4;
 }
 
+
+.typee h4{
+  color:#778470 ;
+  padding-bottom: 2vh;
+}
+
+input[type="radio" i]{
+  height: 2vh;
+}
+
+.radio-group {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.radio-group label {
+  color: #778470;
+  font-size: 2.2vh;
+  padding-bottom: 2vh;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+
+
 .container {
   max-width: 400px;
   margin: 50px auto;
@@ -52,7 +80,7 @@ body {
 }
 
 .form-group input {
-  width: 96%;
+  width: 100%;
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #14a800e5;
@@ -171,6 +199,15 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+  .radio-group label {
+    color: #778470;
+    font-size: 1.8vh;
+    padding-bottom: 2vh;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+  }
 }
 @media (min-width: 480px) and (max-width: 900px) {
    
@@ -184,7 +221,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
   }
   .container {
     max-width: 100%;
@@ -193,5 +229,14 @@ body {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .radio-group label {
+    color: #778470;
+    font-size: 1.5vh;
+    padding-bottom: 2vh;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
   }
 }
