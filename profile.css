@@ -1,0 +1,243 @@
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.oh{
+    display: flex;
+    align-items: center;   
+    justify-content: space-between; 
+}
+
+/* Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #14a800e5;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-header .profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header .profile-picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-header .profile-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.profile-header .profile-info h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.profile-header .profile-info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.profile-header .profile-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header .profile-actions button {
+    background-color: #fff;
+    color: #14a800e5;
+    border: 2px solid #14a800e5;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.profile-header .profile-actions button:hover {
+    background-color: #14a800e5;
+    color: #fff;
+    border-color: #14a800e5;
+}
+
+/* Navigation */
+.profile-nav {
+    background-color: #778470;
+    padding: 10px 0;
+}
+
+.profile-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-nav ul li {
+    flex: 1;
+}
+
+.profile-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 0;
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 6px;
+}
+
+.profile-nav ul li a:hover {
+    background-color: #495057;
+    color: #14a800e5;
+}
+
+/* Profile Sections */
+.profile-section {
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h2 {
+    color: #14a800e5;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settings-content button {
+    background-color: #14a800e5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.settings-content button:hover {
+    background-color: #12a000;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: auto;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    transform: scale(0.95);
+}
+
+.modal-content.show {
+    transform: scale(1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.modal form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.modal form button {
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #14a800e5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal form button:hover {
+    background-color: #12a000;
+}
