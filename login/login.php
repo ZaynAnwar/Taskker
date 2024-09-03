@@ -18,27 +18,6 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required />
         </div>
-        <div class="typee"><h4>Please enter your type</h4></div>
-        <div class="radio-group">
-          <label>
-            <input
-              type="radio"
-              name="userType"
-              value="serviceSeeker"
-              required
-            />
-            Service Seeker
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="userType"
-              value="serviceProvider"
-              required
-            />
-            Service Provider
-          </label>
-        </div>
         <div class="form-group">
           <button type="submit">Login</button>
         </div>
@@ -55,7 +34,7 @@
           <button class="facebook">Continue with Facebook</button>
           <button class="apple">Continue with Apple</button>
         </div>
-        <p>Or <a href="/sign up/signup.html">create an account</a> manually.</p>
+        <p>Or <a href="../sign up/signup.php">create an account</a> manually.</p>
       </div>
     </div>
 

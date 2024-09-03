@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     taskerForm.insertBefore(profileImagePreview, taskerForm.querySelector("button"));
   
+    /*
     // Submit form
     taskerForm.addEventListener("submit", function(event) {
       event.preventDefault();
@@ -45,6 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`${name}: ${value}`);
       }
       // After processing the form data, you can redirect the user or show a success message
-    });
+    });*/
   });
   

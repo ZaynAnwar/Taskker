@@ -50,8 +50,9 @@
 
 
 
+// Code below is not required. Do not uncomment anything below. it will genrate unexpected behaviour. 
 
-
+/*
 
 
 document.getElementById('signupForm').addEventListener('submit', function(event) {
@@ -67,3 +68,5 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
       window.location.href = '/Projects/new/index.html';
   }
 });
+
+*/
