@@ -133,3 +133,27 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
     event.preventDefault();
   }
 });
+
+
+
+// @start Initialized staments to open date picker by clicking on specified buttons // @Atif
+
+
+const OnDateinput = document.getElementById('btn1');
+const OnDatebutton = document.getElementById('onDateBtn');
+
+const beforeDateinput = document.getElementById('btn2');
+const beforeDateBtn = document.getElementById('beforeDateBtn'); 
+
+OnDatebutton.addEventListener('click', () => {
+  OnDateinput.showPicker();  
+});
+
+beforeDateBtn.addEventListener('click', () => {
+  beforeDateinput.showPicker();  
+});
+
+// @End
+
+
+

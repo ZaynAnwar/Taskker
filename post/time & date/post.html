@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="post.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!--- JQuery -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -23,7 +24,7 @@
           </div>
         </div>
       </div>
-      <form id="myForm" action="/post/location/location.html">
+      <form id="myForm" action="">
         <div class="right">
           <h1>Let's add Title & Date!</h1>
           <h4>Describe what you want to get done</h4>
@@ -37,12 +38,12 @@
           <h4>When you want to get done</h4>
           <fieldset class="btns" required="" id="dateFieldset">
             <div class="btns">
-              <div class="btnin">
+              <div class="btnin" id="onDateBtn">
                 <button type="button">
                   On date <input type="date" name="date" id="btn1" />
                 </button>
               </div>
-              <div class="btnin">
+              <div class="btnin" id="beforeDateBtn">
                 <button type="button">
                   Before Date <input type="date" name="date2" id="btn2" />
                 </button>
@@ -107,6 +108,7 @@
       </form>
     </div>
 
-    <script src="post.js"></script>
+     <script src="post.js"></script> 
+
   </body>
 </html>
