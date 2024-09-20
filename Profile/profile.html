@@ -3,164 +3,249 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Page</title>
+    <title>ProviderProfile</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/Profile/profile.css" />
   </head>
   <body>
-    <div class="container">
-      <header class="profile-header">
-        <div class="profile-picture">
-          <img src="profile-pic.jpg" alt="Profile Picture" />
+    <div class="client-profile-page">
+      <!-- Header -->
+      <div class="header">
+        <h2>Provider Profile</h2>
+        <div class="info-container">
+          <a href="/index.html">Home</a>
+          <a href="/find task/find task.html">Find Task</a>
+          <a href="logout.html">Logout</a>
         </div>
-        <div class="profile-info">
-          <h1>John Doe</h1>
-          <p>Email: johndoe@example.com</p>
-          <p>Location: Bahawalpur</p>
+        <div class="user-profile">
+          <img
+            src="user-avatar.jpg"
+            class="avatar"
+            onclick="toggleProfileEditPopup()"
+          />
         </div>
-        <div class="profile-actions">
-          <button id="editProfileButton">Edit Profile</button>
-          <button id="logoutButton">Logout</button>
-        </div>
-      </header>
+      </div>
 
-      <nav class="profile-nav">
-        <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#history">History</a></li>
-          <li><a href="#settings">Settings</a></li>
-          <li><a href="#support">Help & Support</a></li>
-        </ul>
-      </nav>
-      <div class="oh">
-        <section id="overview" class="profile-section">
-          <h2>Overview</h2>
-          <div class="overview-content">
-            <p><strong>Rating:</strong> 4.8/5</p>
-            <p><strong>Services Offered:</strong> Electrician, Plumber</p>
-            <p><strong>Availability:</strong> Mon-Fri, 9 AM - 6 PM</p>
+      <!-- Main Profile Section -->
+      <div class="main-profile-section">
+        <div class="left-panel">
+          <div class="profile-card">
+            <div class="pimage">
+              <img src="client-image.jpg" class="profile-image" />
+            </div>
+            <h3>John Robert</h3>
+            <button class="appointment-btn">Find task</button>
+
+            <div class="client-details">
+              <div class="detail-item">
+                <p>Location</p>
+                <span>Satellatown, Bahawalpur</span>
+              </div>
+              <div class="detail-item">
+                <p>Gender</p>
+                <span>Male</span>
+              </div>
+              <div class="detail-item">
+                <p>CNIC</p>
+                <span>35201-1234567-9</span>
+              </div>
+              <div class="detail-item">
+                <p>Rating</p>
+                <span>4.5/5</span>
+              </div>
+              <div class="detail-item">
+                <p>Experience</p>
+                <span>5 years</span>
+              </div>
+              <div class="detail-item">
+                <p>Reviews</p>
+                <span>25 Reviews</span>
+              </div>
+              <div class="detail-item">
+                <p>Alerts</p>
+                <span>Allows Marketing Notifications</span>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
 
-        <section id="history" class="profile-section">
-          <h2>History</h2>
-          <div class="history-list">
-            <div class="history-item">
-              <p><strong>Service:</strong> Plumbing</p>
-              <p><strong>Date:</strong> 12th Aug 2024</p>
-              <p><strong>Status:</strong> Completed</p>
+        <!-- Popup Edit Card next to Avatar -->
+        <div id="profile-edit-popup" class="profile-edit-popup">
+          <h3>Edit Profile</h3>
+
+          <label for="edit-picture">Profile Picture:</label>
+          <input
+            type="file"
+            id="edit-picture"
+            accept="image/*"
+            onchange="previewPicture(event)"
+          />
+          <img id="picture-preview" src="client-picture.jpg" />
+
+          <label for="edit-name">Name:</label>
+          <input type="text" id="edit-name" value="John Robert" />
+
+          <label for="edit-location">Location</label>
+          <input
+            type="text"
+            id="edit-location"
+            value="Satellatown, Bahawalpur"
+          />
+
+          <label for="edit-gender">Gender:</label>
+          <select id="edit-gender">
+            <option class="opt" value="Male" selected>Male</option>
+            <option class="opt" value="Female">Female</option>
+            <option class="opt" value="Other">Other</option>
+          </select>
+
+          <label for="edit-cnic">CNIC</label>
+          <input type="text" id="edit-cnic" value="35201-1234567-9" />
+
+          <label for="edit-rating">Rating</label>
+          <input type="number" id="edit-rating" value="4.5" />
+
+          <label for="edit-experience">Experience (Years)</label>
+          <input type="number" id="edit-experience" value="5" />
+
+          <label for="edit-reviews">Reviews</label>
+          <input type="number" id="edit-reviews" value="25" />
+
+          <label for="notifications-toggle"
+            >Allow Marketing Notifications:</label
+          >
+          <input type="checkbox" id="notifications-toggle" checked />
+
+          <button class="save-profile" onclick="saveProfileChanges()">
+            Save Changes
+          </button>
+        </div>
+
+        <div class="right-panel">
+          <!-- Stats Section -->
+          <div class="stats-section">
+            <div class="stat">
+              <h3>4</h3>
+              <p>All Bookings</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: 75%; background-color: #14a800e5"
+                ></div>
+              </div>
+              <span>75%</span>
+            </div>
+            <div class="stat">
+              <h3>1</h3>
+              <p>Completed</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: 25%; background-color: #54604c"
+                ></div>
+              </div>
+              <span>25%</span>
+            </div>
+            <div class="stat">
+              <h3>1</h3>
+              <p>Cancelled</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: 25%; background-color: #f8d7da"
+                ></div>
+              </div>
+              <span>25%</span>
+            </div>
+          </div>
+
+          <!-- Appointments Section -->
+          <div class="appointments-section">
+            <div class="tabs">
+              <button class="tab active" id="appointmentsTab">History</button>
+              <button class="tab" id="invoicesTab">Invoices</button>
             </div>
 
-        </section>
-      </div>
+            <!-- Appointments Content -->
+            <div class="appointment-content" id="appointmentsContent">
+              <div class="appointment-item">
+                <p><strong>29 Sep</strong> - Plumbing</p>
+                <div class="itemin">
+                  <span class="status cancelled">Cancelled</span>
+                  <span class="price">RS 1500</span>
+                </div>
+              </div>
+              <div class="appointment-item">
+                <p><strong>15 Oct</strong> - Carpentry</p>
+                <div class="itemin">
+                  <span class="status booked">Booked</span>
+                  <span class="price">RS 2000</span>
+                </div>
+              </div>
+              <div class="appointment-item">
+                <p><strong>13 Apr</strong> - Gardening</p>
+                <div class="itemin">
+                  <span class="status done">Done</span>
+                  <span class="price">RS 500</span>
+                </div>
+              </div>
+              <div class="appointment-item">
+                <p><strong>24 Feb</strong> - Blue Print Structure</p>
+                <div class="itemin">
+                  <span class="status booked">Booked</span>
+                  <span class="price">RS 3000</span>
+                </div>
+              </div>
+            </div>
 
-      <section id="settings" class="profile-section">
-        <h2>Settings</h2>
-        <div class="settings-content">
-          <p>
-            <strong>Password:</strong>
-            <button id="changePasswordButton">Change</button>
-          </p>
-          <p>
-            <strong>Notification Preferences:</strong>
-            <button id="editNotificationsButton">Edit</button>
-          </p>
-        </div>
-      </section>
+            <!-- Invoices Content (Initially Hidden) -->
+            <div class="invoice-content hidden" id="invoicesContent">
+              <div class="invoice-item">
+                <p><strong>Plumbing</strong> - Invoice #12345</p>
+                <span class="price">RS 800</span>
+              </div>
+              <div class="invoice-item">
+                <p><strong>Carpentry</strong> - Invoice #67890</p>
+                <span class="price">RS 1200</span>
+              </div>
+            </div>
+          </div>
 
-      <section id="support" class="profile-section">
-        <h2>Help & Support</h2>
-        <p>If you need any assistance, please contact our support team.</p>
-      </section>
-
-      <!-- Modals -->
-      <div id="editProfileModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Edit Profile</h2>
-          <form id="editProfileForm">
-            <label for="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value="John Doe"
-              required
-            />
-
-            <label for="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value="johndoe@example.com"
-              required
-            />
-
-            <label for="location">Location:</label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              value="Bahawalpur"
-              required
-            />
-
-            <button type="submit">Save Changes</button>
-          </form>
-        </div>
-      </div>
-
-      <div id="changePasswordModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Change Password</h2>
-          <form id="changePasswordForm">
-            <label for="currentPassword">Current Password:</label>
-            <input
-              type="password"
-              id="currentPassword"
-              name="currentPassword"
-              required
-            />
-
-            <label for="newPassword">New Password:</label>
-            <input
-              type="password"
-              id="newPassword"
-              name="newPassword"
-              required
-            />
-
-            <button type="submit">Change Password</button>
-          </form>
-        </div>
-      </div>
-
-      <div id="editNotificationsModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Edit Notifications</h2>
-          <form id="editNotificationsForm">
-            <label for="emailNotifications">Email Notifications:</label>
-            <input
-              type="checkbox"
-              id="emailNotifications"
-              name="emailNotifications"
-              checked
-            />
-
-            <label for="smsNotifications">SMS Notifications:</label>
-            <input
-              type="checkbox"
-              id="smsNotifications"
-              name="smsNotifications"
-            />
-
-            <button type="submit">Save Preferences</button>
-          </form>
+          <!-- Review Carousel Section -->
+          <div class="review-carousel-section">
+            <h3>Customer Reviews</h3>
+            <div class="review-carousel-container">
+              <div class="review-carousel" id="reviewCarousel">
+                <div class="review-tile">
+                  <p>"Excellent service, very professional!"</p>
+                  <span>- Ahmed Khan</span>
+                </div>
+                <div class="review-tile">
+                  <p>"Great experience, highly recommend!"</p>
+                  <span>- Sara Ali</span>
+                </div>
+                <div class="review-tile">
+                  <p>"Good job done on time. Will hire again!"</p>
+                  <span>- Asim Malik</span>
+                </div>
+                <div class="review-tile">
+                  <p>"Very satisfied with the quality of work."</p>
+                  <span>- Fatima Rizwan</span>
+                </div>
+                <div class="review-tile">
+                  <p>"Efficient and polite, great service."</p>
+                  <span>- Waqar Shah</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
     <script src="/Profile/profile.js"></script>
   </body>
 </html>
