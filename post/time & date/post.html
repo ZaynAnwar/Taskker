@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <form id="myForm" action="">
+      <form id="myForm" action="./handleTime.php" method="post">
         <div class="right">
           <h1>Let's add Title & Date!</h1>
           <h4>Describe what you want to get done</h4>
@@ -32,10 +32,11 @@
             required
             class="text"
             type="text"
+            name="title"
             reqired
             placeholder="e.g. Need Cleaner"
           />
-          <h4>When you want to get done</h4>
+          <h4>When you want to get done </h4><span>(Please select only one of them. You may also skip them if you are <strong>Flexible</strong> )</span>
           <fieldset class="btns" required="" id="dateFieldset">
             <div class="btns">
               <div class="btnin" id="onDateBtn">
@@ -48,67 +49,22 @@
                   Before Date <input type="date" name="date2" id="btn2" />
                 </button>
               </div>
-              <div class="btnin">
-                <button type="button" id="btn3">I'm Flexible</button>
+              <!--
+              <div class="btnin" id="flexButton">
+                <button type="button" id="btn3" name="btn3">I'm Flexible</button>
               </div>
+            -->
             </div>
           </fieldset>
           <div id="errorMessages"></div>
-          <div class="check" id="ckb">
-            <div class="cn">
-              <input
-                type="checkbox"
-                name=""
-                id="chb"
-                data-toggle="toggle"
-                data-onstyle="danger"
-                data-offstyle="success"
-              />
-              <p>I need to get it done on certain time of day</p>
-              <p></p>
-            </div>
-          </div>
-          <div class="extra" id="extraa">
-            <div class="extrain">
-              <button class="box" id="demo" onclick="togglePressed()">
-                <i class="ri-haze-line"></i>
-                <h1>Morning</h1>
-                <h4>Before 9am</h4>
-              </button>
-              <button class="box" id="demo1" onclick="togglePressed1()">
-                <i class="ri-sun-line"></i>
-                <h1>Midday</h1>
-                <h4>9am-2pm</h4>
-              </button>
-              <button class="box" id="demo2" onclick="togglePressed2()">
-                <i class="ri-sun-foggy-line"></i>
-                <h1>Afternoon</h1>
-                <h4>2pm-6pm</h4>
-              </button>
-              <button class="box" id="demo3" onclick="togglePressed3()">
-                <i class="ri-moon-foggy-line"></i>
-                <h1>Evening</h1>
-                <h4>After 6am</h4>
-              </button>
-            </div>
-          </div>
-          <div class="btnout">
-            <!-- <div class="btnright">
-              <button>
-                <a href="/Projects/new/post/location/location.html" target="#"
-                  >Next</a
-                >
-              </button>
-            </div> -->
-            <div id="sub">
-              <input type="submit" value="Next" />
-            </div>
+          <div id="sub">
+              <input type="submit" value="Next" name="ADD_POST" />
           </div>
         </div>
       </form>
     </div>
 
-     <script src="post.js"></script> 
+     
 
   </body>
 </html>

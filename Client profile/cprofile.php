@@ -1,3 +1,31 @@
+<?php 
+
+    session_start();
+
+    include '../connection.php';
+
+    if(!isset($_SESSION['UID'])){
+      header('Location: ../login/login.php');
+      exit;
+    }
+
+    $uid = $_SESSION['UID'];
+
+    $userName;
+    $userEmail;
+
+    $sql = "SELECT * FROM `seeker` WHERE `sid` = '".$_SESSION['UID']."'";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+      $row = mysqli_fetch_assoc($result);
+      $userName = $row['name'];
+      $userEmail = $row['email'];
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +36,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/Client ptofile/cprofile.css" />
+    <link rel="stylesheet" href="./cprofile.css" />
   </head>
   <body>
     <div class="client-profile-page">
@@ -16,9 +44,9 @@
       <div class="header">
         <h2>Client Profile</h2>
         <div class="info-container">
-          <a href="/index.html">Home</a>
-          <a href="/post/time & date/post.html">Post Task</a>
-          <a href="logout.html">Logout</a>
+          <a href="../index.php">Home</a>
+          <a href="../post/time & date/post.html">Post Task</a>
+          <a href=".././logout.php">Logout</a>
         </div>
         <div class="user-profile">
           <img
@@ -36,13 +64,13 @@
             <div class="pimage">
               <img src="client-image.jpg" class="profile-image" />
             </div>
-            <h3>Harriet Nunez</h3>
+            <h3><?php echo $userName ?></h3>
             <button class="appointment-btn">Post new task</button>
 
             <div class="client-details">
               <div class="detail-item">
                 <p>Email</p>
-                <span>runolfkdir.gillian@hotmail.com</span>
+                <span><?php echo $userEmail ?></span>
               </div>
               <div class="detail-item">
                 <p>Gender</p>
@@ -100,18 +128,22 @@
           <!-- Stats Section -->
           <div class="stats-section">
             <div class="stat">
-              <h3>4</h3>
+              <?php 
+                $sql = "SELECT COUNT(task_id) as totalTasks FROM tasks WHERE Creater = '$uid'";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                echo "<h3> " . $row['totalTasks'] . " </h3>";
+              ?>
               <p>All Bookings</p>
-              <div class="progress-bar">
-                <div
-                  class="progress"
-                  style="width: 75%; background-color: #14a800e5"
-                ></div>
-              </div>
-              <span>75%</span>
             </div>
             <div class="stat">
-              <h3>1</h3>
+              <?php 
+                $sql = "SELECT COUNT(task_id) as totalTasks FROM tasks WHERE Creater = '$uid' AND task_status = 'Completed'";
+                $result = mysqli_query($conn, $sql);
+
+                $row = mysqli_fetch_assoc($result);
+                echo "<h3> ". $row['totalTasks']. " </h3>";
+              ?>
               <p>Completed</p>
               <div class="progress-bar">
                 <div
@@ -122,7 +154,13 @@
               <span>25%</span>
             </div>
             <div class="stat">
-              <h3>1</h3>
+            <?php 
+                $sql = "SELECT COUNT(task_id) as totalTasks FROM tasks WHERE Creater = '$uid' AND task_status = 'Cancelled'";
+                $result = mysqli_query($conn, $sql);
+
+                $row = mysqli_fetch_assoc($result);
+                echo "<h3> ". $row['totalTasks']. " </h3>";
+              ?>
               <p>Cancelled</p>
               <div class="progress-bar">
                 <div
@@ -141,42 +179,55 @@
               <button class="tab" id="invoicesTab">Invoices</button>
             </div>
 
-            <!-- Appointments Content -->
-            <div class="appointment-content" id="appointmentsContent">
-              <div class="appointment-item">
-                <p><strong>29 Sep</strong> - Plumbing</p>
-                <div class="itemin">
-                  <span class="status cancelled">Cancelled</span>
-                  <span class="price">RS 1500</span>
+            <?php 
+
+              $query = "SELECT * FROM `tasks` WHERE `Creater` = '$uid'";
+              $result = mysqli_query($conn, $query);
+
+            if(mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)){
+                $task_id = $row['task_id'];
+                $task_title = $row['task_title'];
+                $task_description = $row['task_description'];
+                $task_status = $row['task_status'];
+                $task_price = $row['task_budget'];
+                $task_date = $row['task_createdOn'];
+
+                $date = date('d', strtotime($task_date));
+                $month = date('M', strtotime($task_date)); 
+
+                $format = $date . ' ' . $month
+                
+                
+                ?>
+                
+                <div class="appointment-content" id="appointmentsContent">
+                  <div class="appointment-item">
+                    <p><strong><?php echo $format ?></strong> - <?php echo $task_title ?></p>
+                    <div class="itemin">
+                      <?php 
+
+                        if($task_status == 'Active') {
+                          echo "<span class='status booked'> " . $task_status . "</span>";
+                        } else if ($task_status == 'Completed') {
+                          echo "<span class='status done'>". $task_status ."</span>";
+                        } else if($task_status == 'Cancelled') {
+                          echo "<span class='status cancelled'>" . $task_status . "</span>";
+                        }
+                      
+                      ?>
+                      <span class="price">RS <?php  echo $task_price ?></span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="appointment-item">
-                <p><strong>15 Oct</strong> - Carpentry</p>
-                <div class="itemin">
-                  <span class="status booked">Booked</span>
-                  <span class="price">RS 2000</span>
-                </div>
-              </div>
-              <!-- <div class="appointment-item">
-                        <p><strong>11 Nov</strong> - Painting</p>
-                        <span class="status done">Done</span>
-                        <span class="price">$130</span>
-                    </div> -->
-              <div class="appointment-item">
-                <p><strong>13 Apr</strong> - Gardening</p>
-                <div class="itemin">
-                  <span class="status done">Done</span>
-                  <span class="price">RS 500</span>
-                </div>
-              </div>
-              <div class="appointment-item">
-                <p><strong>24 Feb</strong> - Blue Print Structure</p>
-                <div class="itemin">
-                  <span class="status booked">Booked</span>
-                  <span class="price">RS 3000</span>
-                </div>
-              </div>
-            </div>
+
+              <?php }
+            } else {
+              echo "<h3>No appointments found.</h3>";
+            }
+
+              
+            ?>
 
             <!-- Invoices Content (Initially Hidden) -->
             <div class="invoice-content hidden" id="invoicesContent">

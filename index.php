@@ -1,3 +1,16 @@
+<?php 
+  session_start();
+
+  if(isset($_SESSION['UID'])){
+    $type = $_SESSION['A_TYPE'];
+
+    if($type == 'Provider'){
+      // heade('Location: ');
+    } else if($type == 'Seeker'){
+      header("location: Client profile/cprofile.php");
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,7 +43,7 @@
               <a href="#gardeners">Gardeners</a>
             </div>
           </div>
-          <a href="post/time & date/post.html" target="">Post A Task</a>
+          
           <a href="find task/find task.html" target="">Find Task</a>
           <a href="become tasker/becometskr.html" target="">Become A Tasker</a>
           <a href="login/login.php" target="">Login/Sign Up</a>
@@ -49,7 +62,6 @@
               <a href="#gardeners">Gardeners</a>
             </div>
           </div>
-          <a href="post/time & date/post.html" target="">Post A Task</a>
           <a href="find task/find task.html" target="">Find Task</a>
           <a href="become tasker/becometskr.html" target="">Become A Tasker</a>
           <a href="login/login.php" target="">Login/Sign Up</a>

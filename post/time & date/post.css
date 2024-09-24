@@ -1046,3 +1046,9 @@ fieldset {
     background-color: #14a800e5;
   }
 }
+
+
+/*Cancel button*/
+.cb {
+  display: none !important;
+}

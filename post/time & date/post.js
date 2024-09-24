@@ -39,6 +39,7 @@ var btn1 = document.getElementById("btn1");
 var btn2 = document.getElementById("btn2");
 var btn3 = document.getElementById("btn3");
 
+/*
 function clicked() {
   btn1.addEventListener("click", function () {
     document.querySelector("#ckb").style.display = "block";
@@ -94,6 +95,7 @@ function togglePressed3() {
 // }
 
 // Function to update the error message
+/*
  function updateErrorMessage() {
   var dateInputs = document.querySelectorAll(
     '#dateFieldset input[type="date"]'
@@ -115,10 +117,11 @@ function togglePressed3() {
   } else {
     errorMessagesDiv.textContent = ""; // Clear the error message
   }
-}
+}*/
+// @Atif - Don't uncomment above code, this is not useful
 
 // Add event listeners to date inputs to update the error message when filled or changed
-var dateInputs = document.querySelectorAll('#dateFieldset input[type="date"]');
+/*var dateInputs = document.querySelectorAll('#dateFieldset input[type="date"]');
 dateInputs.forEach(function (input) {
   input.addEventListener("change", updateErrorMessage); // Listen for changes in the date inputs
 });
@@ -132,12 +135,12 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   if (errorMessagesDiv.textContent !== "") {
     event.preventDefault();
   }
-});
+});*/
 
 
 
-// @start Initialized staments to open date picker by clicking on specified buttons // @Atif
-
+// @start Initialized statments to open date picker by clicking on specified buttons // @Atif
+/*
 
 const OnDateinput = document.getElementById('btn1');
 const OnDatebutton = document.getElementById('onDateBtn');
@@ -154,6 +157,47 @@ beforeDateBtn.addEventListener('click', () => {
 });
 
 // @End
+
+
+// @start - initialized scripts to handle flexible time - @Atif
+/*
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('#btn3').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#onDateBtn').style.display = 'none';
+    document.querySelector('#beforeDateBtn').style.display = 'none';
+    document.querySelector('#csb').style.display = 'block';
+  });
+  
+  document.querySelector('#onDateBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('onDateBtn clicked');
+    document.querySelector('#beforeDateBtn').style.display = 'none';
+    document.querySelector('#btn3').style.display = 'none';
+    document.querySelector('#csb').style.display = 'block';
+  })
+  
+  document.querySelector('#beforeDateBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#onDateBtn').style.display = 'none';
+    document.querySelector('#btn3').style.display = 'none';
+    document.querySelector('#csb').style.display = 'block';
+  })
+  
+  document.querySelector('#csb').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#onDateBtn').style.display = 'block';
+    document.querySelector('#beforeDateBtn').style.display = 'block';
+    document.querySelector('#btn3').style.display = 'block';
+    document.querySelector('#csb').style.display = 'none';
+  })
+});*/
+
+// @end
+
+
+
+
 
 
 
