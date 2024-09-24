@@ -221,6 +221,7 @@ img {
   color: #5e6d55d7;
 }
 .first button {
+
   height: 6vh;
   width: 10vw;
   background-color: #14a800;
@@ -230,6 +231,7 @@ img {
 }
 .first button a {
   text-decoration: none;
+  font-size: 17px;
   color: #fff;
   display: block;
 }
@@ -251,7 +253,7 @@ img {
 
 /* Page 2 */
 .page2 {
-  height: 100vh;
+  height: 90vh;
   width: 100%;
   padding: 0 5vw;
   display: flex;
@@ -259,12 +261,13 @@ img {
   justify-content: space-between;
 }
 .page2 .left {
-  height: 85vh;
+  height: 80vh;
   width: 40vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10vh;
+  gap: 5vh;
+  padding-top: 3vh;
 }
 .page2 .left h1 {
   font-size: 17vh;
@@ -285,7 +288,7 @@ img {
   font-weight: 600;
 }
 .page2 .right {
-  height: 80vh;
+  height: 75vh;
   width: 40vw;
   padding: 5vh 5vh;
   border: 2px solid #14a800;
@@ -325,14 +328,14 @@ img {
 
 
 
-
  */
 
 /* Page 3 */
 .page3 {
-  height: 105vh;
+  height: 70vh;
   width: 100%;
   padding: 0 5vw;
+  padding-top: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -351,7 +354,7 @@ img {
 }
 .down {
   width: 100%;
-  height: 65vh;
+  height: 35vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1756,7 +1759,7 @@ img {
 }
 
 
-@media (min-width: 901px) and (max-width: 1150px) {
+@media (min-width: 901px) and (max-width: 1400px) {
   .page1 {
     min-height: 100vh;
     width: 100%;
@@ -1978,7 +1981,7 @@ img {
   
   /* Page 2 */
   .page2 {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     padding: 0 5vw;
     display: flex;
@@ -2061,9 +2064,10 @@ img {
   
   /* Page 3 */
   .page3 {
-    height: 105vh;
+    height: 60vh;
     width: 100%;
     padding: 0 5vw;
+    padding-top: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2083,7 +2087,7 @@ img {
   }
   .down {
     width: 100%;
-    height: 65vh;
+    height: 35vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -2122,7 +2126,7 @@ img {
   
   /* Page 4 */
   .page4 {
-    height: 120vh;
+    height: 100vh;
     width: 100%;
     padding: 0 5vw;
     display: flex;
