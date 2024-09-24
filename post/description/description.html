@@ -27,20 +27,20 @@
         <div class="left">
           <h1>Post a Task</h1>
           <div class="leftin">
-            <a href="/post/time & date/post.html">Title & Date</a>
-            <a href="/post/location/location.html">Location</a>
-            <a href="">Details</a>
-            <a href="">Budget</a>
+            <a href="#">Title & Date</a>
+            <a href="#">Location</a>
+            <a href="#">Details</a>
+            <a href="#">Budget</a>
           </div>
         </div>
       </div>
-      <form action="/post/budget/budget.html">
+      <form action="handleDescription.php" method="post">
         <div class="right">
           <h1>Add more details</h1>
           <h4>Provide details</h4>
           <textarea
             required
-            name=""
+            name="description"
             id=""
             cols="30"
             rows="10"
@@ -48,11 +48,7 @@
           ></textarea>
           <div class="btnright">
             <div class="btns">
-              <button>
-                <a href="/Projects/new/post/location/location.html" target="#"
-                  >Back</a
-                >
-              </button>
+              
               <!-- <button>
               <a
                 href="/Projects/new/post/description/description.html"
@@ -61,7 +57,7 @@
               >
             </button> -->
               <div id="sub">
-                <input type="submit" value="Next" />
+                <input type="submit" value="Next" name="ADD_DESCRIPTION" />
               </div>
             </div>
           </div>

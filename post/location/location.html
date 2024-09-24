@@ -27,19 +27,19 @@
         <div class="left">
           <h1>Post a Task</h1>
           <div class="leftin">
-            <a href="post/time & date/post.html & date/post.html">Title & Date</a>
-            <a href="">Location</a>
-            <a href="">Details</a>
-            <a href="">Budget</a>
+            <a href="#">Title & Date</a>
+            <a href="#">Location</a>
+            <a href="#">Details</a>
+            <a href="#">Budget</a>
           </div>
         </div>
       </div>
-      <form action="/post/description/description.html">
+      <form action="./handleLocation.php" method="post">
         <div class="right">
           <h1>Add your Location</h1>
           <h4>Describe where you want to get this done</h4>
-          <form autocomplete="off">
-            <div class="autocomplete">
+
+            <div class="autocomplete" style="margin-bottom: 33;">
               <input
                 required
                 id="myInput"
@@ -48,8 +48,6 @@
                 placeholder="Select your city"
               />
             </div>
-            <!-- <input type="submit" /> -->
-          </form>
           <div class="check" id="ckb">
             <div class="cn">
               <input
@@ -68,20 +66,8 @@
           <div id="map"></div>
           <div class="btnright">
             <div class="btns">
-              <button>
-                <a href="/Projects/new/post/time & date/post.html" target="#"
-                  >Back</a
-                >
-              </button>
-              <!-- <button>
-                <a
-                  href="/Projects/new/post/description/description.html"
-                  target="#"
-                  >Next</a
-                >
-              </button> -->
               <div id="sub">
-                <input type="submit" value="Next" />
+                <input type="submit" value="Next" name="ADD_LOCATION" />
               </div>
             </div>
           </div>

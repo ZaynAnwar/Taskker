@@ -27,26 +27,21 @@
       <div class="left">
         <h1>Post a Task</h1>
         <div class="leftin">
-          <a href="/post/time & date/post.html">Title & Date</a>
-          <a href="/post/location/location.html">Location</a>
-          <a href="/post/description/description.html">Details</a>
-          <a href="">Budget</a>
+          <a href="#">Title & Date</a>
+          <a href="#">Location</a>
+          <a href="#">Details</a>
+          <a href="#">Budget</a>
         </div>
       </div>
       </div>
-      <form action="">
+      <form action="handleBudget.php" method="post">
         <div class="right">
           <h1>Set appropriate budget</h1>
           <h4>What is your budget?</h4>
           <h6>You can always negotiate the final price</h6>
-          <input placeholder="Rs" type="number" name="" id="num">
+          <input placeholder="Rs" type="number" name="budget" id="num">
           <div class="btnright">
             <div class="btns">
-              <button>
-                <a href="/post/description/description.html" target="#"
-                  >Back</a
-                >
-              </button>
               <!-- <button>
               <a
                 href="/Projects/new/post/description/description.html"
@@ -55,7 +50,7 @@
               >
             </button> -->
               <div id="sub">
-                <input type="submit" value="Get quotes" />
+                <input type="submit" value="Get quotes" name="ADD_BUDGET" />
               </div>
             </div>
           </div>
