@@ -1,83 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Find Task</title>
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
-    rel="stylesheet"
-  />
-    <link rel="stylesheet" href="find task.css" />
-  </head>
-  <body>
-    <header>
-      <div class="right">
-        <h1>Find Task</h1>
-      </div>
-      <div class="menu-icon">
-        <i class="ri-menu-line"></i>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile.html">My Profile</a></li>
-          <li><a href="logout.html">Logout</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="close-btn">
-        <i class="ri-close-line"></i>
-      </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile.html">My Profile</a></li>
-          <li><a href="logout.html">Logout</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Overlay -->
-    <div class="overlay"></div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Task | Taskker</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/find task/find task.css">
+</head>
+<body>
     <div class="container">
-      <section class="filters">
-        <h2>Filters</h2>
-        <label for="category">Category:</label>
-        <select id="category">
-          <option value="">All</option>
-          <option value="cleaning">Cleaning</option>
-          <option value="gardening">Gardening</option>
-          <!-- Add more options as needed -->
-        </select>
-        <label for="location">Location:</label>
-        <input type="text" id="location" placeholder="Enter location" />
-        <button id="applyFilters">Apply Filters</button>
-      </section>
+        <!-- Header -->
+        <header class="main-header">
+            <h1>Find Task</h1>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for tasks...">
+                <button class="search-btn"><i class="ri-search-line"></i></button>
+            </div>
+        </header>
 
-      <section class="task-listings">
-        <h2>Available Tasks</h2>
-        <div id="taskList">
-          <!-- Task listings will be dynamically added here -->
-        </div>
-      </section>
+        <!-- Filter Section -->
+        <section class="filters">
+            <h2>Filter Tasks</h2>
+            <form id="filterForm">
+                <div class="filter-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="all">All</option>
+                        <option value="electrician">Electrician</option>
+                        <option value="plumber">Plumber</option>
+                        <option value="mechanic">Mechanic</option>
+                        <option value="gardener">Gardener</option>
+                    </select>
+                </div>
 
-      <aside class="service-provider-listings">
-        <h2>Available Service Providers</h2>
-        <div id="serviceProviderList">
-          <!-- Service provider listings will be dynamically added here -->
-        </div>
-      </aside>
+                <div class="filter-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Enter location">
+                </div>
+
+                <div class="filter-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                </div>
+
+                <button type="submit" class="filter-btn">Apply Filters</button>
+            </form>
+        </section>
+
+        <!-- Task Listings Section -->
+        <section class="task-listings" id="taskListings">
+            <h2>Available Tasks</h2>
+        </section>
     </div>
 
-    <footer>
-      <p>&copy; 2024 Find Task. All rights reserved.</p>
-    </footer>
-
-    <script src="find task.js"></script>
-  </body>
+    <script src="/find task/find task.js"></script>
+</body>
 </html>

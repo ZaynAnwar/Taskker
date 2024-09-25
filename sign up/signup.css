@@ -165,15 +165,66 @@ input[type="radio" i]{
 
 
 
-@media (max-width: 575px){
-  body{
+@media (max-width: 480px) {
+   
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 85vh;
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .container {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .radio-group label {
+    color: #778470;
+    font-size: 1.8vh;
+    padding-bottom: 2vh;
+    font-weight: 500;
     display: flex;
     align-items: center;
+    gap: 1vh;
   }
 }
-@media (min-width: 576px) and (max-width: 769px) {
-  body{
+@media (min-width: 480px) and (max-width: 900px) {
+   
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 85vh;
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .radio-group label {
+    color: #778470;
+    font-size: 1.5vh;
+    padding-bottom: 2vh;
+    font-weight: 500;
     display: flex;
     align-items: center;
+    gap: 1vh;
   }
 }

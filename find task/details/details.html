@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details | Taskker</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/find task/details/details.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <h1>Task Details</h1>
+            <a href="/find task/find task.html" class="back-link"><i class="ri-arrow-left-line"></i> Back to Tasks</a>
+        </header>
+
+        <!-- Task Details Section -->
+        <section class="task-details">
+            <div class="task-info">
+                <h2 id="taskTitle">Electrical Repair</h2>
+                <p id="taskCategory">Category: <strong>Electrician</strong></p>
+                <p id="taskLocation">Location: <strong>Satellite Town, Bahawalpur</strong></p>
+                <p id="taskDate">Date: <strong>2024-09-10</strong></p>
+                <p id="taskPrice">Price: <strong>5,000 PKR</strong></p>
+            </div>
+
+            <div class="task-description">
+                <h3>Description</h3>
+                <p id="taskDescription">
+                    Need an electrician to fix wiring issues in the living room and replace a faulty socket. Must be available by 10th September and bring all required tools.
+                </p>
+            </div>
+
+            <!-- Provider Details Section -->
+            <section class="provider-details">
+                <h3>Service Provider</h3>
+                <div class="provider-info">
+                    <img src="provider-avatar.jpg" class="provider-avatar" alt="Provider Avatar">
+                    <div class="provider-info-text">
+                        <p><strong>John Doe</strong></p>
+                        <p>Rating: <span class="rating">4.8/5</span></p>
+                        <p>Experience: 5 years</p>
+                        <p>Availability: Mon-Fri, 9 AM - 6 PM</p>
+                    </div>
+                </div>
+                <div class="provider-actions">
+                    <button class="message-btn">Message Provider</button>
+                    <button class="hire-btn">Hire Provider</button>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <script src="/find task/details/details.js"></script>
+</body>
+</html>

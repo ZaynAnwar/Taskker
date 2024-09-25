@@ -63,8 +63,7 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required />
         </div>
-        <div class="typee"><h4>Please enter your type</h4>
-      
+        <div class="typee"><h4>Please enter your type</h4></div>
         <div class="radio-group">
           <label>
             <input

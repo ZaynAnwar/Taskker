@@ -71,6 +71,35 @@ body {
   cursor: pointer;
 }
 
+
+/* Service Type Radio style */
+.typee h4{
+  color:#778470 ;
+  padding-bottom: 2vh;
+}
+
+input[type="radio" i]{
+  height: 2vh;
+}
+
+.radio-group {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.radio-group label {
+  color: #778470;
+  font-size: 2.2vh;
+  padding-bottom: 2vh;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+
+
 .form-group button:hover {
   background-color: #14a800;
 }
