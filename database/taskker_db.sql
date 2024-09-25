@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2024 at 07:27 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Sep 24, 2024 at 12:25 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,8 +57,25 @@ CREATE TABLE `seeker` (
   `status` varchar(50) NOT NULL COMMENT 'Account status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Service Seeker ';
 
+
 --
--- Indexes for dumped tables
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `task_id` int(11) NOT NULL COMMENT 'Unique task ID',
+  `task_title` varchar(200) NOT NULL COMMENT 'Title of task',
+  `task_onDate` date NOT NULL COMMENT 'On Date?',
+  `task_beforeDate` date NOT NULL COMMENT 'Before Date?',
+  `task_location` text DEFAULT NULL COMMENT 'Location ',
+  `task_city` varchar(200) NOT NULL COMMENT 'City',
+  `task_description` text NOT NULL COMMENT 'Description',
+  `task_budget` bigint(20) NOT NULL COMMENT 'Budget',
+  `task_status` varchar(200) NOT NULL COMMENT 'Status',
+  `task_createdOn` date NOT NULL COMMENT 'Created On',
+  `Creater` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 
 --
@@ -74,6 +91,12 @@ ALTER TABLE `seeker`
   ADD PRIMARY KEY (`sid`);
 
 --
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`task_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -81,13 +104,19 @@ ALTER TABLE `seeker`
 -- AUTO_INCREMENT for table `provider`
 --
 ALTER TABLE `provider`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Provider ID';
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Provider ID', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `seeker`
 --
 ALTER TABLE `seeker`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Seeker Id';
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Seeker Id', AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique task ID', AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
