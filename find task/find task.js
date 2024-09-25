@@ -56,8 +56,8 @@ function renderTasks(filteredTasks) {
                 <p><strong>Price:</strong> ${task.price}</p>
             </div>
             <div class="task-actions">
-                <button class="details-btn">View Details</button>
-                <button class="apply-btn"><a href="/find task/details/details.html">Apply Now</a></button>
+                <button class="details-btn"><a href="/find task/details/details.html">View Details</a></button>
+                <button class="apply-btn">Apply Now</button>
             </div>
         `;
 
