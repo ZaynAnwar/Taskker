@@ -1,3 +1,12 @@
+<?php 
+
+    session_start();
+
+    require('../connection.php');
+
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Task | Taskker</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="find task.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="find_task.css">
 </head>
 <body>
     <div class="container">
@@ -25,11 +35,12 @@
                 <div class="filter-group">
                     <label for="category">Category</label>
                     <select id="category">
-                        <option value="all">All</option>
+                        <option value="All">All</option>
                         <option value="electrician">Electrician</option>
                         <option value="plumber">Plumber</option>
                         <option value="mechanic">Mechanic</option>
                         <option value="gardener">Gardener</option>
+                        <option value="Painter">Painter</option>
                     </select>
                 </div>
 
@@ -50,21 +61,60 @@
         <!-- Task Listings Section -->
         <section class="task-listings island" id="taskListings">
             <h2>Available Tasks</h2>
-            <div class="task-item">
-                <div class="task-info">
-                    <h3>Fix Electrical Issues</h3>
-                    <p>Location: Bahawalpur</p>
-                    <p>Date: 24th Sep 2024</p>
-                </div>
-                <div class="task-actions">
-                    <a href="#" class="details-btn">Details</a>
-                    <a href="#" class="apply-btn">Apply</a>
-                </div>
-            </div>
             <!-- Add more tasks as needed -->
         </section>
     </div>
 
-    <script src="/find task/find task.js"></script>
+    <script src="find_task.js"></script>
+
+
+    <script>
+        var isSearching;
+        $(document).ready(function() {
+        isSearching = false;
+
+        // Handle search input changes
+        $("#searchInput").keyup(function() {
+            if (!isSearching) {
+                var searchTerm = $(this).val();
+                searchTasks(searchTerm);
+                isSearching = true; 
+            }
+        });
+
+        $("#filterForm").submit(function(e) {
+            e.preventDefault(); // Prevent default form submission
+            var category = $("#category").val();
+            var location = $("#location").val();
+            var date = $("#date").val();
+            console.log(date);
+            searchTasks("", category, location, date); // Clear search term for filtering
+
+            // Reset filter options
+            $("#date").val("");
+        });
+
+        // Initial search for all tasks
+        searchTasks();
+        });
+
+        function searchTasks(searchTerm, category, location, date) {
+            if (isSearching) {
+                return; 
+            }
+
+            isSearching = true;
+
+            $.ajax({
+                url: "getTasks.php",
+                type: "POST",
+                data: { search: searchTerm, category: category, location: location, date: date },
+                success: function(data) {
+                    $("#taskListings").html(data);
+                    isSearching = false;
+                }
+            });
+        }
+    </script>
 </body>
 </html>

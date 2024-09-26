@@ -48,10 +48,10 @@
     <div class="client-profile-page">
       <!-- Header -->
       <div class="header">
-        <h2>Provider Profile</h2>
+        <h2>Dashboard</h2>
         <div class="info-container">
           <a href="#">Home</a>
-          <a href="../find task/find task.html">Find Task</a>
+          <a href="../find task/find_task.php">Find Task</a>
           <a href="../logout.php">Logout</a>
         </div>
         <div class="user-profile">
