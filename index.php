@@ -5,7 +5,7 @@
     $type = $_SESSION['A_TYPE'];
 
     if($type == 'Provider'){
-      // heade('Location: ');
+      header("location: Profile/profile.php");
     } else if($type == 'Seeker'){
       header("location: Client profile/cprofile.php");
     }

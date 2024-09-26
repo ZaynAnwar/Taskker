@@ -1,14 +1,48 @@
+<?php 
+
+    session_start();
+
+    require('../connection.php');
+
+    if(!isset($_SESSION['UID'])){
+      header("location: ../login/login.php");
+      exit();
+    }
+
+    $uid = $_SESSION['UID'];
+
+    $userName;
+    $userEmail;
+    $userImage;
+    $userExperience;
+
+
+    $sql = "SELECT * FROM `provider` WHERE pid = '$uid'";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+      $row = mysqli_fetch_assoc($result);
+      $userName = $row['name'];
+      $userEmail = $row['email'];
+      $userImage = $row['image'];
+      $userExperience = $row['experience'];
+    }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProviderProfile</title>
+    <title>Dashboard</title>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/Profile/profile.css" />
+    <link rel="stylesheet" href="profile.css" />
   </head>
   <body>
     <div class="client-profile-page">
@@ -16,13 +50,13 @@
       <div class="header">
         <h2>Provider Profile</h2>
         <div class="info-container">
-          <a href="/index.html">Home</a>
-          <a href="/find task/find task.html">Find Task</a>
-          <a href="logout.html">Logout</a>
+          <a href="#">Home</a>
+          <a href="../find task/find task.html">Find Task</a>
+          <a href="../logout.php">Logout</a>
         </div>
         <div class="user-profile">
           <img
-            src="user-avatar.jpg"
+            src="../uploads/profiles/<?php echo $userImage ?>"
             class="avatar"
             onclick="toggleProfileEditPopup()"
           />
@@ -34,9 +68,9 @@
         <div class="left-panel">
           <div class="profile-card">
             <div class="pimage">
-              <img src="client-image.jpg" class="profile-image" />
+              <img src="../uploads/profiles/<?php echo $userImage ?>" class="profile-image" />
             </div>
-            <h3>John Robert</h3>
+            <h3><?php echo $userName ?></h3>
             <button class="appointment-btn">Find task</button>
 
             <div class="client-details">
@@ -58,7 +92,7 @@
               </div>
               <div class="detail-item">
                 <p>Experience</p>
-                <span>5 years</span>
+                <span> <?php echo $userExperience ?> years</span>
               </div>
               <div class="detail-item">
                 <p>Reviews</p>
