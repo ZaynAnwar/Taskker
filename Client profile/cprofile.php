@@ -36,7 +36,8 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./cprofile.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="cprofile.css" />
   </head>
   <body>
     <div class="client-profile-page">
@@ -335,6 +336,7 @@
       </div>
     </div>
 
-    <script src="/Client ptofile/cprofile.js"></script>
+    <!-- Javascript -->
+    <script src="cprofile.js"></script>
   </body>
 </html>
