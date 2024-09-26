@@ -131,7 +131,7 @@ body::-webkit-scrollbar-thumb {
 /* Task Listings Section */
 .task-listings {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-
+  
 }
 .task-listings h2 {
   margin-bottom: 15px;

@@ -13,14 +13,14 @@ body {
 
 /* Chat Container */
 .chat-container {
-    width: 50%;
+    width: 95%;
     margin: 50px auto;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -121,6 +121,15 @@ body {
     color: #666;
 }
 
+/* Limit size of media (images and videos) */
+.chat-media {
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
 /* Chat Input Section */
 .chat-input {
     display: flex;
@@ -149,4 +158,44 @@ body {
 
 .chat-input button:hover {
     background-color: #12a400;
+}
+
+/* File input label for attachments */
+.file-label {
+    display: inline-block;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.file-label i {
+    font-size: 20px;
+    color: #14a800e5;
+}
+
+.file-label:hover {
+    background-color: #14a800e5;
+    color: white;
+}
+
+/* Voice recording button */
+.voice-btn {
+    background-color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.voice-btn i {
+    font-size: 20px;
+    color: #14a800e5;
+}
+
+.voice-btn:hover {
+    background-color: #14a800e5;
+    color: white;
 }
