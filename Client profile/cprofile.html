@@ -31,7 +31,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Client Profile</title>
+    <title>Dashboard</title>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -42,7 +42,7 @@
     <div class="client-profile-page">
       <!-- Header -->
       <div class="header">
-        <h2>Client Profile</h2>
+        <h2>Dashboard</h2>
         <div class="info-container">
           <a href="../index.php">Home</a>
           <a href="../post/time & date/post.html">Post Task</a>

@@ -17,7 +17,7 @@
             $row = mysqli_fetch_assoc($result);
             $_SESSION['UID'] = $row['pid'];
             $_SESSION['A_TYPE'] = 'Provider';
-            //header('Location:../home/home.php');
+            header("location: ../Profile/profile.php");
           } else {
             echo "<script>alert('Invalid credentials!')</script>";
           }

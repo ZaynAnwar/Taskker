@@ -1,4 +1,5 @@
 // Initial task data (could be fetched from backend)
+/*
 const tasks = [
     {
         id: 1,
@@ -92,3 +93,8 @@ renderTasks(tasks);
 // Attach filter functionality
 document.getElementById('filterForm').addEventListener('submit', filterTasks);
 document.getElementById('searchInput').addEventListener('input', filterTasks);
+*/
+
+
+
+  
