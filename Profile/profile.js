@@ -73,3 +73,4 @@ function toggleProfileEditPopup() {
   carousel.addEventListener("mouseleave", () => {
     isPaused = false;
   });
+

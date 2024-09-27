@@ -1,3 +1,4 @@
+/*
 // Sample task data (could be dynamically loaded from backend)
 const taskDetails = {
     title: "Electrical Repair",
@@ -32,3 +33,4 @@ function loadTaskDetails() {
 
 // Load task details when page loads
 window.onload = loadTaskDetails;
+*/

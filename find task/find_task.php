@@ -115,6 +115,33 @@
                 }
             });
         }
+
+        function apply(taskId) { 
+            event.preventDefault();
+            // Perform AJAX request to apply for the task
+            $.ajax({
+                url: "apply.php",
+                type: "POST",
+                data: { taskId: taskId },
+                success: function(response) {
+                    console.log(response);
+                    response = JSON.parse(response);
+                    let taskId = response.taskId;
+                    console.log("taskId: " + taskId);
+                    let element = document.getElementById("btn_" + taskId);
+
+                    
+                    if (element) {
+                        element.outerHTML = "<p>Already Applied</p>";
+                    } else {
+                        console.error("Element not found for taskId:", taskId);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: " + status + error);
+                }
+            });
+        }
     </script>
 </body>
 </html>

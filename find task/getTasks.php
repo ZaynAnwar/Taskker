@@ -1,6 +1,10 @@
 <?php
 
+session_start();
 require ('../connection.php');
+
+// Sessions
+$uid  = $_SESSION['UID'];
 
 $searchTerm = isset($_POST['search']) ? $_POST['search'] : '';
 $category = isset($_POST['category']) ? $_POST['category'] : '';
@@ -57,6 +61,13 @@ $result = mysqli_stmt_get_result($stmt);
 if ($result) {
     $taskListings = "";
     while ($row = mysqli_fetch_assoc($result)) {
+        $isTaskApplied = false;
+        $query = "SELECT applied_status FROM `applied_tasks` WHERE applier_id = '$uid' AND task_id = " . $row['task_id'];
+        $run = mysqli_query($conn, $query);
+        if (mysqli_num_rows($run) > 0) {
+            $rowTask = mysqli_fetch_assoc($run);
+            $isTaskApplied = $rowTask['applied_status'] == 'Applied'? true : false;
+        }
         $taskListings .= "
         <div class='task-item'>
             <div class='task-info'>
@@ -65,14 +76,11 @@ if ($result) {
                 <p>Date: " . htmlspecialchars($row['task_createdOn']) . "</p> 
             </div>
             <div class='task-actions'>
-                <form method='post' action=''>
-                    <input type='hidden' name='taskId' value='". htmlspecialchars($row['task_id']) . "' />
+                <form action='details/details.php' method='post'>
+                    <input type='hidden' name='task_id' value='". htmlspecialchars($row['task_id']) . "' />
                     <input type='submit' class='details-btn' name='TASK_DETAIL' value='Details' />
                 </form>
-                <form method='post' action=''>
-                    <input type='hidden' name='taskID' value='". htmlspecialchars($row['task_id']) . "' />
-                    <input type='submit' class='apply-btn' name='TASK_APPLY' value='Apply' />
-                </form>
+                ". ($isTaskApplied ? "<p>Already Applied</p>" : "<form onsubmit='apply(" . $row['task_id'] . "); return false;'><input type='submit' class='apply-btn' id='btn_". $row['task_id'] ."' name='TASK_APPLY' value='Apply' /></form>") . "
             </div>
         </div>
         ";

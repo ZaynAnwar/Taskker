@@ -16,6 +16,8 @@
     $userImage;
     $userExperience;
 
+  
+
 
     $sql = "SELECT * FROM `provider` WHERE pid = '$uid'";
     $result = mysqli_query($conn, $sql);
@@ -26,7 +28,15 @@
       $userEmail = $row['email'];
       $userImage = $row['image'];
       $userExperience = $row['experience'];
+      $userLocation = $row['location'];
+      $userGender = $row['gender'];
+      $userCnic = $row['cnic'];
+      $userPhone = $row['phone'];
+      $marketingNotifications = $row['m_notifications'];
     }
+
+    // Sessions
+    $_SESSION['PROFILE_IMAGE'] = $userImage;
 
 
 
@@ -42,6 +52,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="profile.css" />
   </head>
   <body>
@@ -76,15 +87,15 @@
             <div class="client-details">
               <div class="detail-item">
                 <p>Location</p>
-                <span>Satellatown, Bahawalpur</span>
+                <span><?php echo $userLocation ?></span>
               </div>
               <div class="detail-item">
                 <p>Gender</p>
-                <span>Male</span>
+                <span><?php echo $userGender ?></span>
               </div>
               <div class="detail-item">
                 <p>CNIC</p>
-                <span>35201-1234567-9</span>
+                <span><?php echo $userCnic ?></span>
               </div>
               <div class="detail-item">
                 <p>Rating</p>
@@ -100,7 +111,15 @@
               </div>
               <div class="detail-item">
                 <p>Alerts</p>
-                <span>Allows Marketing Notifications</span>
+                <?php 
+
+                  if($marketingNotifications == 'on'){
+                    echo "<span class='status booked'>Enabled</span>";
+                  } else {
+                    echo "<span class='status cancelled'>Disabled</span>";
+                  }
+                
+                ?>
               </div>
             </div>
           </div>
@@ -108,54 +127,62 @@
 
         <!-- Popup Edit Card next to Avatar -->
         <div id="profile-edit-popup" class="profile-edit-popup">
+          <form action="save-profile-changes.php" method="post" enctype="multipart/form-data"> 
           <h3>Edit Profile</h3>
 
           <label for="edit-picture">Profile Picture:</label>
           <input
             type="file"
             id="edit-picture"
+            name="profileImage"
             accept="image/*"
             onchange="previewPicture(event)"
           />
           <img id="picture-preview" src="client-picture.jpg" />
 
           <label for="edit-name">Name:</label>
-          <input type="text" id="edit-name" value="John Robert" />
+          <input type="text" id="edit-name" name="name" value="<?php echo $userName ?>" />
 
           <label for="edit-location">Location</label>
           <input
             type="text"
             id="edit-location"
-            value="Satellatown, Bahawalpur"
+            name="location"
+            value="<?php echo $userLocation ?>"
           />
 
           <label for="edit-gender">Gender:</label>
-          <select id="edit-gender">
+          <select id="edit-gender" name="gender">
+            <option class="opt" selected hidden value="<?php echo $userGender?>"><?php echo $userGender?></option>
             <option class="opt" value="Male" selected>Male</option>
             <option class="opt" value="Female">Female</option>
             <option class="opt" value="Other">Other</option>
           </select>
 
           <label for="edit-cnic">CNIC</label>
-          <input type="text" id="edit-cnic" value="35201-1234567-9" />
-
-          <label for="edit-rating">Rating</label>
-          <input type="number" id="edit-rating" value="4.5" />
+          <input type="text" id="edit-cnic" name="cnic" value="<?php echo $userCnic ?>" />
 
           <label for="edit-experience">Experience (Years)</label>
-          <input type="number" id="edit-experience" value="5" />
-
-          <label for="edit-reviews">Reviews</label>
-          <input type="number" id="edit-reviews" value="25" />
+          <input type="number" id="edit-experience" name="experience" value="<?php echo $userExperience ?>" />
 
           <label for="notifications-toggle"
             >Allow Marketing Notifications:</label
           >
-          <input type="checkbox" id="notifications-toggle" checked />
 
-          <button class="save-profile" onclick="saveProfileChanges()">
+          <?php 
+
+              if($marketingNotifications == 'on') {
+                echo "<input type='checkbox' name='notifications' id='notifications-toggle' checked />";
+              } else {
+                echo "<input type='checkbox' name='notifications' id='notifications-toggle' />";
+              }
+                  
+          ?>
+
+          <button type="submit" class="save-profile">
             Save Changes
           </button>
+          </form>
         </div>
 
         <div class="right-panel">
@@ -280,6 +307,6 @@
       </div>
     </div>
 
-    <script src="/Profile/profile.js"></script>
+    <script src="profile.js"></script>
   </body>
 </html>
