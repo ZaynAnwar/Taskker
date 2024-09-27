@@ -39,8 +39,35 @@
     $_SESSION['PROFILE_IMAGE'] = $userImage;
 
 
+    // Task percentage
+    $totalTasks = 0;
+    $completedTasks = 0;
+    $canceledTasks = 0;
+    $appliedTasks = 0;
+
+    $query = "SELECT * FROM `applied_tasks` WHERE `applier_id` = '$uid'";
+    $run = mysqli_query($conn, $query);
+    
+    if (mysqli_num_rows($run) > 0) {
+      while ($row = mysqli_fetch_assoc($run)){
+        $totalTasks++;
+        if($row['applied_status'] == 'Applied'){
+          $appliedTasks++;
+        } else if($row['applied_status'] == 'Completed'){
+          $completedTasks++;
+        } else if($row['applied_status'] == 'Canceled'){
+          $canceledTasks++;
+        }
+      }
+    }
+
+    $completedTaskPercentage = ($completedTasks / $totalTasks) * 100;
+    $appliedTaskPercentage = ($appliedTasks / $totalTasks) * 100;
+    $canceledTaskPercentage = ($canceledTasks / $totalTasks) * 100;
+    $completedAndAppliedTaskPercentage = (($completedTasks + $appliedTasks) / $totalTasks) * 100;
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -189,37 +216,37 @@
           <!-- Stats Section -->
           <div class="stats-section">
             <div class="stat">
-              <h3>4</h3>
+              <h3><?php echo ($completedTasks + $appliedTasks) ?></h3>
               <p>All Bookings</p>
               <div class="progress-bar">
                 <div
                   class="progress"
-                  style="width: 75%; background-color: #14a800e5"
+                  style="width: <?php echo $completedAndAppliedTaskPercentage ?>%; background-color: #14a800e5"
                 ></div>
               </div>
-              <span>75%</span>
+              <span><?php echo $completedAndAppliedTaskPercentage ?>%</span>
             </div>
             <div class="stat">
-              <h3>1</h3>
+              <h3><?php echo $completedTasks ?></h3>
               <p>Completed</p>
               <div class="progress-bar">
                 <div
                   class="progress"
-                  style="width: 25%; background-color: #54604c"
+                  style="width: <?php echo $completedTasks ?>%; background-color: #54604c"
                 ></div>
               </div>
-              <span>25%</span>
+              <span><?php echo $completedTasks ?>%</span>
             </div>
             <div class="stat">
-              <h3>1</h3>
+              <h3><?php echo $canceledTasks ?></h3>
               <p>Cancelled</p>
               <div class="progress-bar">
                 <div
                   class="progress"
-                  style="width: 25%; background-color: #f8d7da"
+                  style="width: <?php echo $canceledTasks ?>%; background-color: #f8d7da"
                 ></div>
               </div>
-              <span>25%</span>
+              <span><?php echo $canceledTasks ?>%</span>
             </div>
           </div>
 
@@ -232,34 +259,41 @@
 
             <!-- Appointments Content -->
             <div class="appointment-content" id="appointmentsContent">
-              <div class="appointment-item">
-                <p><strong>29 Sep</strong> - Plumbing</p>
-                <div class="itemin">
-                  <span class="status cancelled">Cancelled</span>
-                  <span class="price">RS 1500</span>
-                </div>
-              </div>
-              <div class="appointment-item">
-                <p><strong>15 Oct</strong> - Carpentry</p>
-                <div class="itemin">
-                  <span class="status booked">Booked</span>
-                  <span class="price">RS 2000</span>
-                </div>
-              </div>
-              <div class="appointment-item">
-                <p><strong>13 Apr</strong> - Gardening</p>
-                <div class="itemin">
-                  <span class="status done">Done</span>
-                  <span class="price">RS 500</span>
-                </div>
-              </div>
-              <div class="appointment-item">
-                <p><strong>24 Feb</strong> - Blue Print Structure</p>
-                <div class="itemin">
-                  <span class="status booked">Booked</span>
-                  <span class="price">RS 3000</span>
-                </div>
-              </div>
+              <?php 
+
+                $taskTitle;
+                $taskBudget;
+
+                $query = "SELECT * FROM applied_tasks INNER JOIN tasks ON applied_tasks.task_id = tasks.task_id WHERE applier_id = '$uid'";
+                $result = mysqli_query($conn, $query);
+
+                if(mysqli_num_rows($result) > 0) {
+                  while($row = mysqli_fetch_array($result)){
+
+                    ?>
+                    
+                    <div class="appointment-item">
+                      <p><strong><?php echo date('d M', strtotime($row['applied_on'])) ?></strong> - <?php echo $row['task_title'] ?></p>
+                      <div class="itemin">
+                        <?php 
+                          if($row['applied_status'] == 'Applied'){
+                            echo "<span class='status booked'>". $row['applied_status']."</span>";
+                          } else if($row['applied_status'] == 'Completed'){ 
+                            echo "<span class='status done'> ". $row['applied_status'] ."</span>";
+                          } else if($row['applied_status'] == 'Cancelled'){
+                            echo "<span class='status cancelled'>".$row['applied_status']."</span>";
+                          }
+                        ?>
+                        <span class="price">RS <?php echo $row['task_budget'] ?></span>
+                      </div>
+                    </div>
+                  <?php }
+                } else {
+                  echo "<p>No appointments found.</p>";
+                }
+              
+              ?>
+              
             </div>
 
             <!-- Invoices Content (Initially Hidden) -->
@@ -280,6 +314,19 @@
             <h3>Customer Reviews</h3>
             <div class="review-carousel-container">
               <div class="review-carousel" id="reviewCarousel">
+                <?php  
+                  $query = "SELECT * FROM `reviews` INNER JOIN seeker ON reviews.review_giver = seeker.sid WHERE `review_taker` = '$uid'";
+                  $result = mysqli_query($conn, $query);
+
+                  if(mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_array($result)){
+                      echo "<div class='review-tile'>
+                          <p><q>".$row['review_description']."</q></p>
+                          <span>- ".$row['name']."</span>
+                        </div>";
+                    }
+                  }
+                ?>
                 <div class="review-tile">
                   <p>"Excellent service, very professional!"</p>
                   <span>- Ahmed Khan</span>

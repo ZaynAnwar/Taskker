@@ -24,7 +24,6 @@
     $destination = '../uploads/profiles/';
     $imagePath = $destination . $imageName;
 
-    /*
     if(empty($imageName)){
         // No image uploaded, just update the profile
         $sql = "UPDATE `provider` SET `name` = '$name', `gender` = '$gender', `cnic` = '$cnic', `location` = '$location', `experience` = '$experience', `m_notifications` = '$notifications' WHERE `pid` = '$uid'";
@@ -36,8 +35,7 @@
             // Handle database error
             echo ('Database update failed: '.mysqli_error($conn));
         }
-    } 
-    */
+    } else {
     if(isset($_SESSION['PROFILE_IMAGE'])){
         $oldImage = $_SESSION['PROFILE_IMAGE'];
         
@@ -79,6 +77,7 @@
         
         
     }
+}
 
 
     
