@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2024 at 05:44 AM
+-- Generation Time: Sep 27, 2024 at 01:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -27,6 +27,20 @@ USE `taskker_db`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `applied_tasks`
+--
+
+CREATE TABLE `applied_tasks` (
+  `at_id` int(11) NOT NULL COMMENT 'Applied Task ID',
+  `applier_id` int(11) NOT NULL COMMENT 'Id, Who Applied?',
+  `task_id` bigint(20) NOT NULL COMMENT 'Id of Task',
+  `applied_on` datetime NOT NULL COMMENT 'Date & Time of Apply',
+  `applied_status` varchar(50) NOT NULL COMMENT 'Satus of Application'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `provider`
 --
 
@@ -36,13 +50,17 @@ CREATE TABLE `provider` (
   `email` varchar(70) NOT NULL COMMENT 'Provider email',
   `password` varchar(50) NOT NULL COMMENT 'Provider Password',
   `phone` bigint(15) NOT NULL COMMENT 'Provider contact #',
+  `cnic` bigint(13) NOT NULL COMMENT 'CNIC - National Idntity',
   `image` blob NOT NULL COMMENT 'Provider  Profile Image',
+  `gender` varchar(20) NOT NULL COMMENT 'Gender ',
   `availbality` varchar(30) NOT NULL COMMENT 'Provider Availabilty',
+  `location` text NOT NULL COMMENT 'Residential Location',
   `experience` int(11) NOT NULL COMMENT 'Provider Experience',
   `skills` text NOT NULL COMMENT 'Provider skills',
   `bio` text NOT NULL COMMENT 'Provider Bio',
   `status` varchar(50) NOT NULL COMMENT 'provider status',
-  `created_At` date NOT NULL
+  `m_notifications` varchar(10) NOT NULL COMMENT 'Marketing Notifications\r\n',
+  `created_At` date NOT NULL COMMENT 'Account Creation date'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Service Provider';
 
 --
@@ -101,7 +119,6 @@ CREATE TABLE `seeker` (
 --
 
 
-
 -- --------------------------------------------------------
 
 --
@@ -126,9 +143,15 @@ CREATE TABLE `tasks` (
 -- Dumping data for table `tasks`
 --
 
-
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `applied_tasks`
+--
+ALTER TABLE `applied_tasks`
+  ADD PRIMARY KEY (`at_id`);
 
 --
 -- Indexes for table `provider`
@@ -163,6 +186,12 @@ ALTER TABLE `tasks`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `applied_tasks`
+--
+ALTER TABLE `applied_tasks`
+  MODIFY `at_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Applied Task ID';
 
 --
 -- AUTO_INCREMENT for table `provider`
