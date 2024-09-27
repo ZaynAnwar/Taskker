@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2024 at 12:25 PM
+-- Generation Time: Sep 27, 2024 at 05:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `taskker_db`
 --
+
+CREATE DATABASE IF NOT EXISTS `taskker_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `taskker_db`;
 
 -- --------------------------------------------------------
 
@@ -42,6 +45,39 @@ CREATE TABLE `provider` (
   `created_At` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Service Provider';
 
+--
+-- Dumping data for table `provider`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `rating_id` bigint(20) NOT NULL,
+  `rating_giver` bigint(20) NOT NULL,
+  `rating_taker` bigint(20) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `rating_createdOn` date NOT NULL,
+  `rating_status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `review_id` bigint(20) NOT NULL,
+  `review_giver` bigint(20) NOT NULL,
+  `review_taker` bigint(20) NOT NULL,
+  `review_createdOn` date NOT NULL,
+  `review_status` varchar(50) NOT NULL,
+  `review_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -53,10 +89,20 @@ CREATE TABLE `seeker` (
   `name` varchar(200) NOT NULL COMMENT 'Service seeker name',
   `email` varchar(50) NOT NULL COMMENT 'Seeker email',
   `password` varchar(70) NOT NULL COMMENT 'Seeker password',
+  `gender` varchar(20) NOT NULL COMMENT 'Gender of user',
+  `image` blob NOT NULL COMMENT 'User Profile Image',
   `created_at` date NOT NULL COMMENT 'Account creation date',
-  `status` varchar(50) NOT NULL COMMENT 'Account status'
+  `status` varchar(50) NOT NULL COMMENT 'Account status',
+  `m_notifications` varchar(20) NOT NULL COMMENT 'Marketing Notification'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Service Seeker ';
 
+--
+-- Dumping data for table `seeker`
+--
+
+
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `tasks`
@@ -77,12 +123,30 @@ CREATE TABLE `tasks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `tasks`
+--
+
+
+-- Indexes for dumped tables
+--
 
 --
 -- Indexes for table `provider`
 --
 ALTER TABLE `provider`
   ADD PRIMARY KEY (`pid`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rating_id`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`review_id`);
 
 --
 -- Indexes for table `seeker`
@@ -104,19 +168,31 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `provider`
 --
 ALTER TABLE `provider`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Provider ID', AUTO_INCREMENT=2;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Provider ID', AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rating_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `review_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `seeker`
 --
 ALTER TABLE `seeker`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Seeker Id', AUTO_INCREMENT=2;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Seeker Id', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique task ID', AUTO_INCREMENT=2;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique task ID', AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

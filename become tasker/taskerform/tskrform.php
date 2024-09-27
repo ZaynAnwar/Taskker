@@ -13,7 +13,11 @@
     $experience = $_POST['experience'];
 
     $imageName = $_FILES['profileImage']['name'];
+    if(!empty($imageName)){
+      $imageName = $uid . '-' . time() . '-' . $imageName;
+  }
     $imageTempName = $_FILES['profileImage']['tmp_name'];
+    
 
     $destination = '../../uploads/profiles/';
     $imagePath = $destination. $imageName;
