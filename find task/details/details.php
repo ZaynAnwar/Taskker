@@ -82,8 +82,8 @@
                     </div>
                 </div>
                 <div class="provider-actions">
-                    <button class="message-btn">Message Provider</button>
-                    <button class="hire-btn">Hire Provider</button>
+                    <button class="message-btn"><a href="/Taskker website/chat system/chat.html">Chat With Client</a></button>
+                    <button class="hire-btn">Apply Now</button>
                 </div>
             </section>
         </section>
