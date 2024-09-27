@@ -14,6 +14,7 @@
 
     $imageName = $_FILES['profileImage']['name'];
     $imageTempName = $_FILES['profileImage']['tmp_name'];
+    
 
     $destination = '../../uploads/profiles/';
     $imagePath = $destination. $imageName;

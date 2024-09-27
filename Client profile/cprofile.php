@@ -13,6 +13,7 @@
 
     $userName;
     $userEmail;
+    $userGender;
 
     $sql = "SELECT * FROM `seeker` WHERE `sid` = '".$_SESSION['UID']."'";
     $result = mysqli_query($conn, $sql);
@@ -21,6 +22,7 @@
       $row = mysqli_fetch_assoc($result);
       $userName = $row['name'];
       $userEmail = $row['email'];
+      $userGender = $row['gender'];
     }
 
 
@@ -65,17 +67,17 @@
             <div class="pimage">
               <img src="client-image.jpg" class="profile-image" />
             </div>
-            <h3><?php echo $userName ?></h3>
+            <h3 id="uname"><?php echo $userName ?></h3>
             <button class="appointment-btn">Post new task</button>
 
             <div class="client-details">
               <div class="detail-item">
                 <p>Email</p>
-                <span><?php echo $userEmail ?></span>
+                <span id="uemail"><?php echo $userEmail ?></span>
               </div>
               <div class="detail-item">
                 <p>Gender</p>
-                <span>Female</span>
+                <span id="ugender"><?php echo $userGender ?></span>
               </div>
               <div class="detail-item">
                 <p>Alerts</p>
@@ -99,17 +101,18 @@
           <img id="picture-preview" src="client-picture.jpg" />
 
           <label for="edit-name">Name:</label>
-          <input type="text" id="edit-name" value="Harriet Nunez" />
+          <input type="text" id="edit-name" value="<?php echo $userName ?>" />
 
           <label for="edit-email">Email:</label>
           <input
             type="email"
             id="edit-email"
-            value="runolfsdir.gillian@hotmail.com"
+            value="<?php echo $userEmail ?>"
           />
 
           <label for="edit-gender">Gender:</label>
           <select id="edit-gender">
+            <option class="opt" selected disabled value="<?php echo $userGender?>"><?php echo $userGender?></option>
             <option class="opt" value="Female" selected>Female</option>
             <option class="opt" value="Male">Male</option>
             <option class="opt" value="Other">Other</option>

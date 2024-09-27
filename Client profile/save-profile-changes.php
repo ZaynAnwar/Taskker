@@ -10,7 +10,9 @@
     $gender = $_POST['gender'];
     $notifications = $_POST['notifications'];
 
-    $sql = "UPDATE `seeker` SET `name` = '$name', `email` = '$email', `gender` = '$gender', `m_notifications` = '$notifications' WHERE `id` = '$uid'";
+    
+
+    $sql = "UPDATE `seeker` SET `name` = '$name', `email` = '$email', `gender` = '$gender', `m_notifications` = '$notifications' WHERE `sid` = '$uid'";
     $result = mysqli_query($conn, $sql);
 
 
