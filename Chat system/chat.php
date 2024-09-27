@@ -38,6 +38,16 @@
         <!-- Chat Input Section -->
         <div class="chat-input">
             <input type="text" id="messageInput" placeholder="Type your message...">
+            <!-- File Input for sending images/videos -->
+            <label for="mediaInput" class="file-label">
+                <i class="ri-attachment-line"></i>
+            </label>
+            <input type="file" id="mediaInput" accept="image/*, video/*" style="display:none;">
+
+            <!-- Button for recording voice messages -->
+            <button id="recordVoiceBtn" class="voice-btn"><i class="ri-mic-line"></i></button>
+
+            <!-- Button for sending text message -->
             <button id="sendMessageBtn"><i class="ri-send-plane-2-fill"></i></button>
         </div>
     </div>
