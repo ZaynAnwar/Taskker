@@ -24,40 +24,9 @@ function toggleProfileEditPopup() {
     }
   }
   
+  
   // Save Profile Changes
   function saveProfileChanges() {
-    var name = document.getElementById('edit-name').value;
-    var email = document.getElementById('edit-email').value;
-    var gender = document.getElementById('edit-gender').value;
-    var notifications = document.getElementById('notifications-toggle').checked;
-
-    console.log("Sending data:", { name, email, gender, notifications }); // Log data being sent
-  
-
-    $.ajax({
-      url: 'save-profile-changes.php',
-      type: 'POST',
-      data: {
-        name: name,
-        email: email,
-        gender: gender,
-        notifications: notifications
-      },
-      success: function(response) {
-        console.log(response);
-        $('#uname').text(name);
-        $('#uemail').text(email);
-        $('#ugender').text(gender);
-      },
-      error: function(error) {
-        console.error("Error:", status, error);
-      }
-    })
-  
-    // Update the profile with new values (You can send this data to the server here)
-    //alert('Profile updated:\nName: ' + name + '\nEmail: ' + email + '\nGender: ' + gender + '\nNotifications: ' + (notifications ? 'Enabled' : 'Disabled'));
-  
-    // Close the popup after saving changes
     toggleProfileEditPopup();
   }
   

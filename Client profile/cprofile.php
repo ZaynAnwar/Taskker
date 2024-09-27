@@ -23,7 +23,36 @@
       $userName = $row['name'];
       $userEmail = $row['email'];
       $userGender = $row['gender'];
+      $userImage = $row['image'];
+      $marketingNotifications = $row['m_notifications'];
     }
+
+    // Sessions 
+    $_SESSION['PROFILE_IMAGE'] = $userImage;
+
+    // Task percentage
+    $totalTasks = 0;
+    $completedTasks = 0;
+    $canceledTasks = 0;
+    $activeTasks = 0;
+
+    $sql = "SELECT * FROM `tasks` WHERE `Creater` = '".$_SESSION['UID']."'";
+    $result = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_assoc($result)){
+      $totalTasks++;
+      if($row['task_status'] == 'Completed'){
+        $completedTasks++;
+      } else if($row['task_status'] == 'Cancelled'){
+        $canceledTasks++;
+      } else if($row['task_status'] == 'Active'){
+        $activeTasks++;
+      }
+    }
+
+    $completedTaskpercentage = ($completedTasks / $totalTasks) * 100;
+    $canceledTaskPercentage = ($canceledTasks / $totalTasks) * 100;
+    $activeTaskPercentage = ($activeTasks / $totalTasks) * 100;
+    $completedandActivetasksPercentage = (($completedTasks + $activeTasks) / $totalTasks ) * 100;
 
 
 ?>
@@ -46,6 +75,7 @@
       <!-- Header -->
       <div class="header">
         <h2>Dashboard</h2>
+        
         <div class="info-container">
           <a href="../index.php">Home</a>
           <a href="../post/time & date/post.html">Post Task</a>
@@ -53,7 +83,8 @@
         </div>
         <div class="user-profile">
           <img
-            src="user-avatar.jpg"
+            src="../uploads/profiles/<?php echo $userImage ?>"
+            alt="../uploads/profiles/<?php echo $userImage ?>"
             class="avatar"
             onclick="toggleProfileEditPopup()"
           />
@@ -65,7 +96,7 @@
         <div class="left-panel">
           <div class="profile-card">
             <div class="pimage">
-              <img src="client-image.jpg" class="profile-image" />
+              <img src="../uploads/profiles/<?php echo $userImage ?>" alt="<?php echo $userImage ?>" class="profile-image" />
             </div>
             <h3 id="uname"><?php echo $userName ?></h3>
             <button class="appointment-btn">Post new task</button>
@@ -81,7 +112,15 @@
               </div>
               <div class="detail-item">
                 <p>Alerts</p>
-                <span>Allows Marketing Notifications</span>
+                <?php 
+
+                     if($marketingNotifications == 'on') {
+                        echo "<span class='status booked'>Enabled</span>";
+                     } else {
+                        echo "<span class='status cancelled'>Disabled</span>";
+                     }
+                
+                ?>
               </div>
             </div>
           </div>
@@ -89,6 +128,7 @@
 
         <!-- Popup Edit Card next to Avatar -->
         <div id="profile-edit-popup" class="profile-edit-popup">
+          <form method="post" action="save-profile-changes.php" enctype="multipart/form-data">
           <h3>Edit Profile</h3>
 
           <label for="edit-picture">Profile Picture:</label>
@@ -96,24 +136,26 @@
             type="file"
             id="edit-picture"
             accept="image/*"
+            name="profileImage"
             onchange="previewPicture(event)"
           />
           <img id="picture-preview" src="client-picture.jpg" />
 
           <label for="edit-name">Name:</label>
-          <input type="text" id="edit-name" value="<?php echo $userName ?>" />
+          <input type="text" id="edit-name" name="name" value="<?php echo $userName ?>" />
 
           <label for="edit-email">Email:</label>
           <input
             type="email"
             id="edit-email"
+            name="email"
             value="<?php echo $userEmail ?>"
           />
 
           <label for="edit-gender">Gender:</label>
-          <select id="edit-gender">
-            <option class="opt" selected disabled value="<?php echo $userGender?>"><?php echo $userGender?></option>
-            <option class="opt" value="Female" selected>Female</option>
+          <select id="edit-gender" name="gender">
+            <option class="opt" selected hidden value="<?php echo $userGender?>"><?php echo $userGender?></option>
+            <option class="opt" value="Female">Female</option>
             <option class="opt" value="Male">Male</option>
             <option class="opt" value="Other">Other</option>
           </select>
@@ -121,11 +163,20 @@
           <label for="notifications-toggle"
             >Allow Marketing Notifications:</label
           >
-          <input type="checkbox" id="notifications-toggle" checked />
+          <?php
 
+             if($marketingNotifications == 'on') {
+                echo "<input type='checkbox' name='notifications' id='notifications-toggle' checked />";
+             } else {
+                echo "<input type='checkbox' name='notifications' id='notifications-toggle' />";
+             }
+
+           ?>
+          
           <button class="save-profile" onclick="saveProfileChanges()">
             Save Changes
           </button>
+        </form>
         </div>
 
         <div class="right-panel">
@@ -139,6 +190,13 @@
                 echo "<h3> " . $row['totalTasks'] . " </h3>";
               ?>
               <p>All Bookings</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: <?php echo $completedandActivetasksPercentage ?>%; background-color: #54604c"
+                ></div>
+              </div>
+              <span> <?php echo $completedandActivetasksPercentage ?>%</span>
             </div>
             <div class="stat">
               <?php 
@@ -152,10 +210,10 @@
               <div class="progress-bar">
                 <div
                   class="progress"
-                  style="width: 25%; background-color: #54604c"
+                  style="width: <?php echo $completedTaskpercentage ?>%; background-color: #54604c"
                 ></div>
               </div>
-              <span>25%</span>
+              <span><?php echo $completedTaskpercentage ?>%</span>
             </div>
             <div class="stat">
             <?php 
@@ -169,10 +227,10 @@
               <div class="progress-bar">
                 <div
                   class="progress"
-                  style="width: 25%; background-color: #f8d7da"
+                  style="width: <?php echo $canceledTaskPercentage ?>%; background-color: #f8d7da"
                 ></div>
               </div>
-              <span> 25%</span>
+              <span> <?php echo $canceledTaskPercentage?>%</span>
             </div>
           </div>
 
