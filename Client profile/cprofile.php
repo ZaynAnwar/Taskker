@@ -36,7 +36,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./cprofile.css" />
+    <link rel="stylesheet" href="cprofile.css" />
   </head>
   <body>
     <div class="client-profile-page">
