@@ -81,6 +81,9 @@ body::-webkit-scrollbar {
 .profile-edit-popup h3 {
   margin-bottom: 15px;
 }
+.profile-edit-popup h4 {
+  margin-bottom: 15px;
+}
 
 .profile-edit-popup input,
 .profile-edit-popup select {

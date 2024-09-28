@@ -172,6 +172,12 @@
              }
 
            ?>
+
+          <h4>Update Password</h4>
+          <label for="enter-password">Enter Password</label>
+          <input type="text">
+          <label for="re-enter-password">Re-enter Password</label>
+          <input type="text">
           
           <button class="save-profile" onclick="saveProfileChanges()">
             Save Changes
@@ -397,7 +403,6 @@
       </div>
     </div>
 
-    <!-- Javascript -->
     <script src="cprofile.js"></script>
   </body>
 </html>

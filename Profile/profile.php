@@ -192,6 +192,12 @@
           <label for="edit-experience">Experience (Years)</label>
           <input type="number" id="edit-experience" name="experience" value="<?php echo $userExperience ?>" />
 
+          <h4>Update Password</h4>
+          <label for="enter-password">Enter Password</label>
+          <input type="text">
+          <label for="re-enter-password">Re-enter Password</label>
+          <input type="text">
+
           <label for="notifications-toggle"
             >Allow Marketing Notifications:</label
           >
