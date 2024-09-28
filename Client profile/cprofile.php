@@ -317,8 +317,11 @@
         <h3>Quotations for Your Posted Tasks</h3>
 
         <div class="quotation-up">
-          <!-- Quotation Container 1 -->
-          <div class="quotation-container">
+          <h4>Task Title</h4>
+          <div class="quotation-in">
+
+            <!-- Quotation Container 1 -->
+            <div class="quotation-container">
             <div class="quotation-header">
               <div class="provider-info">
                 <span class="provider-name">John Doe</span>
@@ -357,10 +360,10 @@
                 <button class="btn message-btn">Message</button>
               </div>
             </div>
-          </div>
+            </div>
 
-          <!-- Quotation Container 2 -->
-          <div class="quotation-container">
+            <!-- Quotation Container 2 -->
+            <div class="quotation-container">
             <div class="quotation-header">
               <div class="provider-info">
                 <span class="provider-name">Sarah Smith</span>
@@ -398,7 +401,96 @@
                 <button class="btn message-btn">Message</button>
               </div>
             </div>
+            </div>
           </div>
+        </div>
+        <div class="quotation-up">
+          <h4>   2nd Task Title</h4>
+            <div class="quotation-in">
+              
+              <!-- Quotation Container 1 -->
+              <div class="quotation-container">
+            <div class="quotation-header">
+              <div class="provider-info">
+                <span class="provider-name">John Doe</span>
+                <span class="provider-service">Plumbing</span>
+              </div>
+              <div class="provider-rating">
+                <span>Rating : ⭐ 4.5</span>
+              </div>
+            </div>
+            <div class="quotation-details">
+              <div class="detail">
+                <strong>Availability:</strong> Monday to Friday
+              </div>
+              <div class="detail"><strong>Experience:</strong> 5 Years</div>
+              <div class="detail"><strong>Price Quoted:</strong> 5,000 PKR</div>
+            </div>
+            <div class="quotation-footer">
+              <div class="description">
+                <div class="detail"><strong>Description:</strong></div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  non risus. Suspendisse lectus tortor, dignissim sit amet,
+                  adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+                  lectus tortor, dignissim sit amet, adipiscing nec, ultricies
+                  sed, dolor.Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
+                  amet, adipiscing nec, ultricies sed, dolor. dolor.Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
+                  ultricies sed, dolor.
+                </p>
+              </div>
+              <div class="quotation-actions">
+                <button class="btn hire-btn">Hire</button>
+                <button class="btn message-btn">Message</button>
+              </div>
+            </div>
+              </div>
+
+              <!-- Quotation Container 2 -->
+              <div class="quotation-container">
+            <div class="quotation-header">
+              <div class="provider-info">
+                <span class="provider-name">Sarah Smith</span>
+                <span class="provider-service">Electrical Work</span>
+              </div>
+              <div class="provider-rating">
+                <span>Rating : ⭐ 4.8</span>
+              </div>
+            </div>
+            <div class="quotation-details">
+              <div class="detail"><strong>Availability:</strong> Weekends</div>
+              <div class="detail"><strong>Experience:</strong> 7 Years</div>
+              <div class="detail"><strong>Price Quoted:</strong> 7,500 PKR</div>
+            </div>
+
+            <div class="quotation-footer">
+              <div class="description">
+                <div class="detail"><strong>Description:</strong></div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  non risus. Suspendisse lectus tortor, dignissim sit amet,
+                  adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+                  lectus tortor, dignissim sit amet, adipiscing nec, ultricies
+                  sed, dolor.Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
+                  amet, adipiscing nec, ultricies sed, dolor. dolor.Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
+                  ultricies sed, dolor.
+                </p>
+              </div>
+              <div class="quotation-actions">
+                <button class="btn hire-btn">Hire</button>
+                <button class="btn message-btn">Message</button>
+              </div>
+            </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
