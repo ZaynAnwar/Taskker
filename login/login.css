@@ -45,7 +45,7 @@ body {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .form-group label {
@@ -69,6 +69,20 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.forgotpass {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 15px;
+}
+.forgotpass a{
+  text-decoration: none;
+  color: #778470;
+}
+.forgotpass {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 15px;
 }
 
 

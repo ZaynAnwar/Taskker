@@ -63,6 +63,7 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required />
         </div>
+        <div class="forgotpass"><a href="/login/forgot password/forgot_pass.html">Forgot Password</a></div>
         <div class="typee"><h4>Please enter your type</h4></div>
         <div class="radio-group">
           <label>
