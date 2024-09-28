@@ -353,17 +353,31 @@ body::-webkit-scrollbar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .quotation-up{
+  background-color: #eeeeee;
+  border-radius: 2vh;
+  margin-bottom: 10vh;
+  padding-bottom: 2vh;
+}
+.quotation-in{
+  background-color: #eeeeee;
   height: 380px;
   width: 100%;
   overflow-y: auto;
+  border-radius: 2vh;
+
 }
-.quotation-up::-webkit-scrollbar {
+.quotation-up h4{
+  margin: 10px;
+  font-size: 25px;
+}
+.quotation-in::-webkit-scrollbar {
   background-color: #fff;
   width: 0.3vw;
 }
-.quotation-up::-webkit-scrollbar-thumb {
+.quotation-in::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #dddddd;
+
 }
 
 .quotation-section h3 {
@@ -376,7 +390,9 @@ body::-webkit-scrollbar {
 .quotation-container {
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #eeeeee;
+  background-color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
   /* box-shadow: 4px 4px 50px rgba(0, 0, 0, 0.1), -4px -4px 50px rgba(0, 0, 0, 0.1); */
   border-radius: 10px;
   transition: transform 0.2s ease;
