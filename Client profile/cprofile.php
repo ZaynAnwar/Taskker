@@ -247,6 +247,7 @@
               <button class="tab" id="invoicesTab">Invoices</button>
             </div>
 
+            <div class="tab-content active" id="appointmentsContent">
             <?php 
 
               $query = "SELECT * FROM `tasks` WHERE `Creater` = '$uid'";
@@ -296,6 +297,7 @@
 
               
             ?>
+            </div>
 
             <!-- Invoices Content (Initially Hidden) -->
             <div class="invoice-content hidden" id="invoicesContent">

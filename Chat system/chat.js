@@ -27,7 +27,7 @@ function appendMedia(mediaType, src, type, timestamp) {
     messageDiv.classList.add('message', type);
     if (mediaType === 'image') {
         messageDiv.innerHTML = `
-            <img src="${src}" class="chat-media" alt="${src}">
+            <a href='${src}'><img src="${src}" class="chat-media" alt="${src}"></a>
             <span class="message-time">${timestamp}</span>
         `;
     } else if (mediaType === 'video') {
