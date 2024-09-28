@@ -44,6 +44,7 @@
     $completedTasks = 0;
     $canceledTasks = 0;
     $appliedTasks = 0;
+    $completedAndAppliedTaskPercentage = 0;
 
     $query = "SELECT * FROM `applied_tasks` WHERE `applier_id` = '$uid'";
     $run = mysqli_query($conn, $query);
@@ -61,10 +62,12 @@
       }
     }
 
-    $completedTaskPercentage = ($completedTasks / $totalTasks) * 100;
-    $appliedTaskPercentage = ($appliedTasks / $totalTasks) * 100;
-    $canceledTaskPercentage = ($canceledTasks / $totalTasks) * 100;
-    $completedAndAppliedTaskPercentage = (($completedTasks + $appliedTasks) / $totalTasks) * 100;
+    if($totalTasks != 0){
+      $completedTaskPercentage = ($completedTasks / $totalTasks) * 100;
+      $appliedTaskPercentage = ($appliedTasks / $totalTasks) * 100;
+      $canceledTaskPercentage = ($canceledTasks / $totalTasks) * 100;
+      $completedAndAppliedTaskPercentage = (($completedTasks + $appliedTasks) / $totalTasks) * 100;
+    }
 
 ?>
 
@@ -289,7 +292,7 @@
                     </div>
                   <?php }
                 } else {
-                  echo "<p>No appointments found.</p>";
+                  echo "<p style='display: flex; justify-content: center; align-items:center; height: 100vh;'>No appointments found. <a href='../find task/find_task.php'>Find a task</a></p>";
                 }
               
               ?>

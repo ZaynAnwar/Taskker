@@ -132,7 +132,7 @@
 
                     
                     if (element) {
-                        element.outerHTML = "<p>Already Applied</p>";
+                        element.outerHTML = "<p>Applied</p>";
                     } else {
                         console.error("Element not found for taskId:", taskId);
                     }

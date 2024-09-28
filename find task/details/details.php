@@ -1,6 +1,13 @@
 <?php 
 
+    session_start();
+
     include '../../connection.php';
+
+
+
+    $uid = $_SESSION['UID'];
+    $profileImage = $_SESSION['PROFILE_IMAGE'];
 
     $taskId = $_POST['task_id'];
 
@@ -31,6 +38,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Details | Taskker</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="details.css">
 </head>
 <body>
@@ -73,22 +81,85 @@
             <section class="provider-details">
                 <h3>Service Provider</h3>
                 <div class="provider-info">
-                    <img src="provider-avatar.jpg" class="provider-avatar" alt="Provider Avatar">
+
+                    <img src="../../uploads/profiles/<?php echo $profileImage ?>" class="provider-avatar" alt="Provider Avatar">
                     <div class="provider-info-text">
-                        <p><strong>John Doe</strong></p>
-                        <p>Rating: <span class="rating">4.8/5</span></p>
-                        <p>Experience: 5 years</p>
-                        <p>Availability: Mon-Fri, 9 AM - 6 PM</p>
+                        <?php 
+                            $sql = "SELECT * FROM `provider` WHERE `pid` = '$uid' ";
+                            $result = mysqli_query($conn, $sql);
+
+                            if(mysqli_num_rows($result) > 0){
+                                $row = mysqli_fetch_assoc($result);
+                                echo "<p>Name: <strong>". $row['name']. "</strong></p>";
+                                echo "<p>Rating: <strong> 4.5 </strong></p>";
+                                echo "<p>Experience: <strong>". $row['experience']. "</strong></p>";
+                                echo "<p>Availability: ". $row['availbality'] ."</p>";
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="provider-actions">
-                    <button class="message-btn"><a href="/Taskker website/chat system/chat.html">Chat With Client</a></button>
-                    <button class="hire-btn">Apply Now</button>
+                    <form action="../../Chat system/chat.php" method="post">
+                        <?php 
+                            $query = "SELECT Creater FROM tasks WHERE task_id = '$taskId' " ;
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+                            $creater = $row['Creater'];
+                            echo "<input type='hidden' name='client_id' value='". $creater. "'>";
+                            echo "<input type='hidden' name='task_id' value='". $taskId. "'>";
+                            echo "<input type='submit' class='message-btn' name='OPEN_CHAT_P2C' value='Chat with Client'  />"
+                        ?>
+                        <input type="hidden" >
+                    </form>
+                    <?php 
+                        $sql = "SELECT * FROM applied_tasks WHERE task_id = '$taskId'";
+                        $result = mysqli_query($conn, $sql);
+                        
+                        if(mysqli_num_rows($result) > 0){
+                            $row = mysqli_fetch_assoc($result);
+                            if($row['applied_status'] == 'Applied'){
+                                echo "<p>Applied</p>";
+                            }
+                        } else {
+                            echo "<form onsubmit='apply(". $taskId. "); return false;'>
+                                    <input class='hire-btn' type='submit' value='Apply' id='tsk'/>
+                                </form>";
+                        }
+                    ?>
                 </div>
             </section>
         </section>
     </div>
 
     <script src="details.js"></script>
+
+    <script>
+        function apply(taskId) { 
+            event.preventDefault();
+            // Perform AJAX request to apply for the task
+            $.ajax({
+                url: "../apply.php",
+                type: "POST",
+                data: { taskId: taskId },
+                success: function(response) {
+                    let element = document.getElementById("tsk");
+
+                    
+                    if (element) {
+                        element.outerHTML = "<p>Applied</p>";
+                    } else {
+                        console.error("Element not found for taskId:", taskId);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: " + status + error);
+                }
+            });
+        }
+    </script>
+    
+    <script>
+
+    </script>
 </body>
 </html>

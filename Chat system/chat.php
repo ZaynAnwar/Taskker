@@ -1,3 +1,51 @@
+<?php 
+
+    session_start();
+
+    if(!$_SESSION['UID']){
+        header('location: ../login/login.php');
+        exit();
+    }
+
+    include '../connection.php';
+
+    if(isset($_POST['OPEN_CHAT_P2C'])){
+        $clientId = $_POST['client_id'];
+        $chatType = 'P2C'; // Provider to Client
+    }
+    else if(isset($_POST['OPEN_CHAT_C2P'])){
+        $providerId = $_POST['provider_id'];
+        $chatType = 'C2P'; // Client to Provider
+    }
+
+    $data;
+    $dataId;
+
+
+    if($chatType == 'P2C'){
+        $sql = "SELECT * FROM `seeker` WHERE `sid` = '$clientId'";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_assoc($result);
+        $dataId = $data['sid'];
+    } else if($chatType == 'C2P'){
+        $sql = "SELECT * FROM `provider` WHERE `pid` = '$providerId'";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_assoc($result);
+        $dataId = $data['pid'];
+    }
+
+
+    $myID = $_SESSION['UID'];
+    $otherID = $dataId;
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +53,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taskker | Chat</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="chat.css">
 </head>
 <body>
@@ -12,9 +61,9 @@
         <!-- Chat Header -->
         <header class="chat-header">
             <div class="user-info">
-                <img src="user-avatar.jpg" class="avatar" alt="User Avatar">
+                <img src="../uploads/profiles/<?php echo $data['image'] ?>" class="avatar" alt="User Avatar">
                 <div class="user-details">
-                    <h3>John Robert</h3>
+                    <h3><?php echo $data['name'] ?></h3>
                     <p>Online</p>
                 </div>
             </div>
@@ -25,14 +74,7 @@
 
         <!-- Chat Messages Section -->
         <div class="chat-window" id="chatWindow">
-            <div class="message received">
-                <p class="message-text">Hi, can we schedule the task for tomorrow?</p>
-                <span class="message-time">10:30 AM</span>
-            </div>
-            <div class="message sent">
-                <p class="message-text">Yes, that works for me. What time?</p>
-                <span class="message-time">10:32 AM</span>
-            </div>
+            
         </div>
 
         <!-- Chat Input Section -->
@@ -52,6 +94,15 @@
         </div>
     </div>
 
+    
+    <script>
+        // Set the current user's ID
+        const myID = "<?php echo $myID?>";
+        // Set the other user's ID
+        const otherID = "<?php echo $otherID?>";
+    </script>
+
     <script src="chat.js"></script>
+
 </body>
 </html>
