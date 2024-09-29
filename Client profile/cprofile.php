@@ -333,7 +333,8 @@
                   if(mysqli_num_rows($run) > 0){
                     while($data = mysqli_fetch_array($run)){?>
                       <div class="quotation-container">
-                        <div class="quotation-header">
+                        <div class="quotation-inner">
+                          <div class="quotation-header">
                           <div class="provider-info">
                             <span class="provider-name"><?php echo $data['name'] ?></span>
                             <span class="provider-service">Plumbing</span>
@@ -341,8 +342,8 @@
                           <div class="provider-rating">
                             <span>Rating : ⭐ 4.5</span>
                           </div>  
-                        </div>
-                        <div class="quotation-details">
+                          </div>
+                          <div class="quotation-details">
                           <div class="detail">
                             <strong>Availability:</strong> <?php echo $data['availbality'] ?>
                           </div>
@@ -352,24 +353,28 @@
                           <div class="detail">
                             <strong>Price Quoted:</strong> <?php echo $row['task_budget'] ?> PKR
                           </div>
-                        </div>
-                        <div class="quotation-footer">
+                          </div>
+                          <div class="quotation-footer">
                           <div class="description">
                             <div class="detail"><strong>Description:</strong></div>
                             <p>
                               <?php echo $row['task_description'] ?>
                             </p>
                           </div>
-                          <div class="quotation-actions">
-                            <button class="btn hire-btn">Hire</button>
-                            <form action="../Chat system/chat.php" method="post">
-                              <input type="hidden" name="provider_id" value="<?php echo $data['pid']?>">
-                              <input type="hidden" name="task_id" value="<?php echo $row['task_id']?>">
-                              <input type="hidden" name="task_title" value="<?php echo $row['task_title']?>">
-                              <input type="submit" name="OPEN_CHAT_C2P" class="btn message-btn" value="Message">
-                            </form>
                           </div>
-                        </div>   
+                        </div> 
+                        
+                        <div class="quotation-actions">
+                          <button class="btn hire-btn"><a href="">Review profile</a></button>
+                          <button class="btn message-btn">Hire</button>
+                          <form action="../Chat system/chat.php" method="post">
+                            <input type="hidden" name="provider_id" value="<?php echo $data['pid']?>">
+                            <input type="hidden" name="task_id" value="<?php echo $row['task_id']?>">
+                            <input type="hidden" name="task_title" value="<?php echo $row['task_title']?>">
+                            <input type="submit" name="OPEN_CHAT_C2P" class="btn hire-btn" value="Message">
+                          </form>
+                        </div>
+
                       </div>
                     <?php }
                 ?>
