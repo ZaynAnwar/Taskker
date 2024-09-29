@@ -112,7 +112,9 @@
               <img src="../uploads/profiles/<?php echo $userImage ?>" class="profile-image" />
             </div>
             <h3><?php echo $userName ?></h3>
-            <button class="appointment-btn">Find task</button>
+            
+            <button class="appointment-btn"><a href="/find task/find_task.php">Find Task</a></button>
+            <button class="appointment-btn"><a href="/Profile_update_password/profile_update_pass.html">Update Password</a></button>
 
             <div class="client-details">
               <div class="detail-item">
@@ -194,12 +196,6 @@
 
           <label for="edit-experience">Experience (Years)</label>
           <input type="number" id="edit-experience" name="experience" value="<?php echo $userExperience ?>" />
-
-          <h4>Update Password</h4>
-          <label for="enter-password">Enter Password</label>
-          <input type="text">
-          <label for="re-enter-password">Re-enter Password</label>
-          <input type="text">
 
           <label for="notifications-toggle"
             >Allow Marketing Notifications:</label

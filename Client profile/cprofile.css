@@ -198,6 +198,10 @@ body::-webkit-scrollbar {
   cursor: pointer;
   margin-top: 15px;
 }
+.appointment-btn a {
+ text-decoration: none;
+ color: #fff;
+}
 
 .client-details {
   text-align: left;
