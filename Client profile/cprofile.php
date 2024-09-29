@@ -126,6 +126,8 @@
           </div>
         </div>
 
+
+        
         <!-- Popup Edit Card next to Avatar -->
         <div id="profile-edit-popup" class="profile-edit-popup">
           <form method="post" action="save-profile-changes.php" enctype="multipart/form-data">
