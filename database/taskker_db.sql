@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2024 at 01:03 PM
+-- Generation Time: Sep 29, 2024 at 08:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `taskker_db`
 --
 
-CREATE DATABASE IF NOT EXISTS `taskker_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `taskker_db`;
+CREATE DATABASE `taskker_db` IF NOT EXISTS
+Use `taskker_db`;
 
 -- --------------------------------------------------------
 
@@ -37,6 +37,51 @@ CREATE TABLE `applied_tasks` (
   `applied_on` datetime NOT NULL COMMENT 'Date & Time of Apply',
   `applied_status` varchar(50) NOT NULL COMMENT 'Satus of Application'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `applied_tasks`
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `chat_id` int(11) NOT NULL COMMENT 'unique Caht ID',
+  `member_1` bigint(20) NOT NULL COMMENT 'ID of Member\r\n',
+  `member_2` bigint(20) NOT NULL COMMENT 'ID of Member',
+  `chat_last_message_T` datetime NOT NULL COMMENT 'Last Message TimeStamp',
+  `chat_last_message_C` text NOT NULL COMMENT 'Last Message Content',
+  `chat_status` varchar(50) NOT NULL COMMENT 'Chat Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chat`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` bigint(20) NOT NULL COMMENT 'Unique Id',
+  `chat_id` bigint(20) NOT NULL COMMENT 'Relative Chat ID\r\n',
+  `sender` bigint(20) NOT NULL COMMENT 'Message Sender',
+  `receiver` bigint(20) NOT NULL COMMENT 'Message Receiver',
+  `message_type` varchar(20) NOT NULL COMMENT 'Text, Audio, Video, Image?',
+  `message_content` text NOT NULL COMMENT 'Message Content',
+  `message_media` blob NOT NULL COMMENT 'Media File ',
+  `message_timestamp` datetime NOT NULL COMMENT 'Message Date $ Time',
+  `message_status` varchar(10) NOT NULL COMMENT 'Message Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
 
 -- --------------------------------------------------------
 
@@ -59,6 +104,7 @@ CREATE TABLE `provider` (
   `skills` text NOT NULL COMMENT 'Provider skills',
   `bio` text NOT NULL COMMENT 'Provider Bio',
   `status` varchar(50) NOT NULL COMMENT 'provider status',
+  `last_active` datetime DEFAULT NULL COMMENT 'Time. When provider was online',
   `m_notifications` varchar(10) NOT NULL COMMENT 'Marketing Notifications\r\n',
   `created_At` date NOT NULL COMMENT 'Account Creation date'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Service Provider';
@@ -66,6 +112,7 @@ CREATE TABLE `provider` (
 --
 -- Dumping data for table `provider`
 --
+
 -- --------------------------------------------------------
 
 --
@@ -111,13 +158,13 @@ CREATE TABLE `seeker` (
   `image` blob NOT NULL COMMENT 'User Profile Image',
   `created_at` date NOT NULL COMMENT 'Account creation date',
   `status` varchar(50) NOT NULL COMMENT 'Account status',
-  `m_notifications` varchar(20) NOT NULL COMMENT 'Marketing Notification'
+  `m_notifications` varchar(20) NOT NULL COMMENT 'Marketing Notification',
+  `last_Active` datetime DEFAULT NULL COMMENT 'Time. When client was online'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Service Seeker ';
 
 --
 -- Dumping data for table `seeker`
 --
-
 
 -- --------------------------------------------------------
 
@@ -152,6 +199,18 @@ CREATE TABLE `tasks` (
 --
 ALTER TABLE `applied_tasks`
   ADD PRIMARY KEY (`at_id`);
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`chat_id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
 
 --
 -- Indexes for table `provider`
@@ -191,7 +250,19 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `applied_tasks`
 --
 ALTER TABLE `applied_tasks`
-  MODIFY `at_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Applied Task ID';
+  MODIFY `at_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Applied Task ID', AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'unique Caht ID', AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Unique Id', AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `provider`

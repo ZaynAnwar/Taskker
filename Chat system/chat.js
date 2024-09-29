@@ -181,11 +181,11 @@ function sendMessage(messageType, content, sender, receiver) {
         data: { messageType: messageType, content: content, sender: sender, receiver: receiver },
         success: function(response) {
             response = JSON.parse(response);
-            const { sender, receiver, content } = response; // Destructure to avoid confusion
+            const { sender, receiver, content } = response; // Destructure to avoid confusion - @atif
 
-            // Only update the lastTimeStamp if the response includes it
+            // Only update the lastTimeStamp if the response includes it - @atif
             if (response.timestamp) {
-                lastTimeStamp = response.timestamp; // Update lastTimeStamp if provided by server
+                lastTimeStamp = response.timestamp; // Update lastTimeStamp if provided by server - @atif
             }
             
             updateChat(sender, receiver, lastTimeStamp);
@@ -211,24 +211,28 @@ function updateChat(sender, receiver, lastTimeStamp) {
             console.log(response);
             // Ensure response is an object
             if (response && typeof response === 'object') {
-                const messages = response.Message; // Get the messages
-                const latestTimestamp = response.Timestamp; // Get the latest timestamp
+                const messages = response.Message; // Get the messages - @atif
+                const latestTimestamp = response.Timestamp; // Get the latest timestamp - @atif
 
                 messages.forEach(message => {
 
                     
-                    // Only append the message if it has not been displayed yet
+                    // Only append the message if it has not been displayed yet - @atif
                     if (!displayedMessageIds.has(message.message_id)) {
                         if (message.message_type === 'image' || message.message_type === 'video') {
-                            appendMedia(message.message_type, `../uploads/media/${message.message_type}s/${message.message_media}`, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
+                            if(message.message_status === 'deleted'){
+                                appendMessage('<i> This media was deleted </i>', message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp))
+                            } else {
+                                appendMedia(message.message_type, `../uploads/media/${message.message_type}s/${message.message_media}`, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
+                            }
                         } else if(message.message_type === 'audio') {
                             appendAudio(`../uploads/media/voices/${message.message_media}`, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
                         } 
                         else {
                             appendMessage(message.message_content, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
                         }
-                        displayedMessageIds.add(message.message_id); // Add the message ID to the set
-                        chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll to the bottom
+                        displayedMessageIds.add(message.message_id); // Add the message ID to the set - @atif
+                        chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll to the bottom - @atif
                     }
                 });
 
@@ -272,6 +276,9 @@ function loadInitialMessages() {
             console.error('Error loading messages:', error);
         }
     });
+
+    // Scroll to the latest message
+    chatWindow.scrollTop = chatWindow.scrollHeight;
 
     // Use a function reference for setInterval
     setInterval(() => updateChat(myID, otherID, lastTimeStamp), 1000);

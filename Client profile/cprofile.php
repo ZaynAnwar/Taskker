@@ -318,182 +318,74 @@
       <div class="quotation-section">
         <h3>Quotations for Your Posted Tasks</h3>
 
-        <div class="quotation-up">
-          <h4>Task Title</h4>
-          <div class="quotation-in">
+        <?php 
 
-            <!-- Quotation Container 1 -->
-            <div class="quotation-container">
-            <div class="quotation-header">
-              <div class="provider-info">
-                <span class="provider-name">John Doe</span>
-                <span class="provider-service">Plumbing</span>
-              </div>
-              <div class="provider-rating">
-                <span>Rating : ⭐ 4.5</span>
-              </div>
-            </div>
-            <div class="quotation-details">
-              <div class="detail">
-                <strong>Availability:</strong> Monday to Friday
-              </div>
-              <div class="detail"><strong>Experience:</strong> 5 Years</div>
-              <div class="detail"><strong>Price Quoted:</strong> 5,000 PKR</div>
-            </div>
-            <div class="quotation-footer">
-              <div class="description">
-                <div class="detail"><strong>Description:</strong></div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  non risus. Suspendisse lectus tortor, dignissim sit amet,
-                  adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-                  lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-                  sed, dolor.Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
-                  amet, adipiscing nec, ultricies sed, dolor. dolor.Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-                  ultricies sed, dolor.
-                </p>
-              </div>
-              <div class="quotation-actions">
-                <button class="btn hire-btn">Hire</button>
-                <button class="btn message-btn">Message</button>
-              </div>
-            </div>
-            </div>
+        $sql = "SELECT * FROM tasks WHERE creater = '$uid'";
+        $result = mysqli_query($conn, $sql);
 
-            <!-- Quotation Container 2 -->
-            <div class="quotation-container">
-            <div class="quotation-header">
-              <div class="provider-info">
-                <span class="provider-name">Sarah Smith</span>
-                <span class="provider-service">Electrical Work</span>
-              </div>
-              <div class="provider-rating">
-                <span>Rating : ⭐ 4.8</span>
-              </div>
-            </div>
-            <div class="quotation-details">
-              <div class="detail"><strong>Availability:</strong> Weekends</div>
-              <div class="detail"><strong>Experience:</strong> 7 Years</div>
-              <div class="detail"><strong>Price Quoted:</strong> 7,500 PKR</div>
-            </div>
+        if(mysqli_num_rows($result) > 0){ 
+          while($row = mysqli_fetch_array($result)){?>
+            <div class="quotation-up">
+              <h4><?php echo $row['task_title'] ?></h4>
+              <div class="quotation-in">
+                <?php 
 
-            <div class="quotation-footer">
-              <div class="description">
-                <div class="detail"><strong>Description:</strong></div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  non risus. Suspendisse lectus tortor, dignissim sit amet,
-                  adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-                  lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-                  sed, dolor.Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
-                  amet, adipiscing nec, ultricies sed, dolor. dolor.Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-                  ultricies sed, dolor.
-                </p>
-              </div>
-              <div class="quotation-actions">
-                <button class="btn hire-btn">Hire</button>
-                <button class="btn message-btn">Message</button>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="quotation-up">
-          <h4>   2nd Task Title</h4>
-            <div class="quotation-in">
-              
-              <!-- Quotation Container 1 -->
-              <div class="quotation-container">
-            <div class="quotation-header">
-              <div class="provider-info">
-                <span class="provider-name">John Doe</span>
-                <span class="provider-service">Plumbing</span>
-              </div>
-              <div class="provider-rating">
-                <span>Rating : ⭐ 4.5</span>
-              </div>
-            </div>
-            <div class="quotation-details">
-              <div class="detail">
-                <strong>Availability:</strong> Monday to Friday
-              </div>
-              <div class="detail"><strong>Experience:</strong> 5 Years</div>
-              <div class="detail"><strong>Price Quoted:</strong> 5,000 PKR</div>
-            </div>
-            <div class="quotation-footer">
-              <div class="description">
-                <div class="detail"><strong>Description:</strong></div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  non risus. Suspendisse lectus tortor, dignissim sit amet,
-                  adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-                  lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-                  sed, dolor.Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
-                  amet, adipiscing nec, ultricies sed, dolor. dolor.Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-                  ultricies sed, dolor.
-                </p>
-              </div>
-              <div class="quotation-actions">
-                <button class="btn hire-btn">Hire</button>
-                <button class="btn message-btn">Message</button>
-              </div>
-            </div>
-              </div>
+                  $query = "SELECT * FROM applied_tasks INNER JOIN `provider` ON applied_tasks.applier_id = `provider`.pid WHERE applied_tasks.task_id = ' " .$row['task_id']. "'";
+                  $run = mysqli_query($conn, $query);
 
-              <!-- Quotation Container 2 -->
-              <div class="quotation-container">
-            <div class="quotation-header">
-              <div class="provider-info">
-                <span class="provider-name">Sarah Smith</span>
-                <span class="provider-service">Electrical Work</span>
-              </div>
-              <div class="provider-rating">
-                <span>Rating : ⭐ 4.8</span>
+                  if(mysqli_num_rows($run) > 0){
+                    while($data = mysqli_fetch_array($run)){?>
+                      <div class="quotation-container">
+                        <div class="quotation-header">
+                          <div class="provider-info">
+                            <span class="provider-name"><?php echo $data['name'] ?></span>
+                            <span class="provider-service">Plumbing</span>
+                          </div>
+                          <div class="provider-rating">
+                            <span>Rating : ⭐ 4.5</span>
+                          </div>  
+                        </div>
+                        <div class="quotation-details">
+                          <div class="detail">
+                            <strong>Availability:</strong> <?php echo $data['availbality'] ?>
+                          </div>
+                          <div class="detail">
+                            <strong>Experience:</strong> <?php echo $data['experience'] ?> Years
+                          </div>
+                          <div class="detail">
+                            <strong>Price Quoted:</strong> <?php echo $row['task_budget'] ?> PKR
+                          </div>
+                        </div>
+                        <div class="quotation-footer">
+                          <div class="description">
+                            <div class="detail"><strong>Description:</strong></div>
+                            <p>
+                              <?php echo $row['task_description'] ?>
+                            </p>
+                          </div>
+                          <div class="quotation-actions">
+                            <button class="btn hire-btn">Hire</button>
+                            <form action="../Chat system/chat.php" method="post">
+                              <input type="hidden" name="provider_id" value="<?php echo $data['pid']?>">
+                              <input type="hidden" name="task_id" value="<?php echo $row['task_id']?>">
+                              <input type="hidden" name="task_title" value="<?php echo $row['task_title']?>">
+                              <input type="submit" name="OPEN_CHAT_C2P" class="btn message-btn" value="Message">
+                            </form>
+                          </div>
+                        </div>   
+                      </div>
+                    <?php }
+                ?>
               </div>
             </div>
-            <div class="quotation-details">
-              <div class="detail"><strong>Availability:</strong> Weekends</div>
-              <div class="detail"><strong>Experience:</strong> 7 Years</div>
-              <div class="detail"><strong>Price Quoted:</strong> 7,500 PKR</div>
-            </div>
-
-            <div class="quotation-footer">
-              <div class="description">
-                <div class="detail"><strong>Description:</strong></div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  non risus. Suspendisse lectus tortor, dignissim sit amet,
-                  adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-                  lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-                  sed, dolor.Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
-                  amet, adipiscing nec, ultricies sed, dolor. dolor.Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-                  ultricies sed, dolor.
-                </p>
-              </div>
-              <div class="quotation-actions">
-                <button class="btn hire-btn">Hire</button>
-                <button class="btn message-btn">Message</button>
-              </div>
-            </div>
-              </div>
-            </div>
-        </div>
+          <?php } else {
+            echo "<p>No quotes found for this task.</p>";
+          }
+          }
+         } else {
+          echo "<p>No tasks found.</p>";
+         }
+        ?>
       </div>
     </div>
 

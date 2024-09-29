@@ -10,7 +10,7 @@ if (isset($_POST['messageType'])) {
     // Undefined Variables
     $chatId;
 
-    // Check for existing chat
+    // Check for existing chat - @atif
     $query = "SELECT * FROM chat WHERE (member_1 = ? AND member_2 = ?) OR (member_1 = ? AND member_2 = ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ssss", $sender, $receiver, $receiver, $sender);
@@ -28,12 +28,11 @@ if (isset($_POST['messageType'])) {
     }
 
     if ($messageType == 'text') {
-        // Prepare the SQL statement for inserting messages
-        $stmt = $conn->prepare("INSERT INTO messages (chat_id, sender, receiver, message_content, message_timestamp) VALUES (?, ?, ?, ?, NOW())");
-        $stmt->bind_param("isss", $chatId, $sender, $receiver, $content);
+        $stmt = $conn->prepare("INSERT INTO messages (chat_id, sender, receiver, message_content, message_type, message_timestamp) VALUES (?, ?, ?, ?, ?, NOW())");
+        $stmt->bind_param("issss", $chatId, $sender, $receiver, $content, $messageType);
 
         if ($stmt->execute()) {
-            // Update the last message in the chat
+            // Update the last message in the chat - @atif
             $innerSQL = "UPDATE chat SET chat_last_message_C = ?, chat_last_message_T = NOW() WHERE chat_id = ?";
             $innerStmt = $conn->prepare($innerSQL);
             $innerStmt->bind_param("si", $content, $chatId);
