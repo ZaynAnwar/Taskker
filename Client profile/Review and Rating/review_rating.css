@@ -1,0 +1,149 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 80vw;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+.section {
+    margin-bottom: 40px;
+}
+
+/* Status Section */
+.status-section h2 {
+    font-size: 24px;
+    color: #5e6d55d7;
+    margin-bottom: 15px;
+}
+
+.status {
+    font-weight: bold;
+    color: #14a800;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* Task Details */
+.task-details h2 {
+    font-size: 24px;
+    color: #14a800;
+    margin-bottom: 15px;
+}
+.task-details {
+    margin-bottom: 15px;
+}
+
+.task-details p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Provider Profile Button */
+.provider-profile {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.profile-btn {
+    background-color: #14a800;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.profile-btn:hover {
+    background-color: #12a400;
+}
+
+/* Review Section */
+.review-section h2 {
+    font-size: 24px;
+    color: #14a800;
+    margin-bottom: 15px;
+}
+
+.rating-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rating-wrapper label {
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 5px;
+}
+
+.rating-stars i {
+    font-size: 28px;
+    color: #5e6d55d7;
+    cursor: pointer;
+}
+
+.rating-stars i.active {
+    color: #14a800e5;
+}
+
+textarea {
+    width: 100%;
+    height: 20vh;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    resize: none;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #14a800;
+}
+
+.submit-review {
+    background-color: #14a800;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.submit-review:hover {
+    background-color: #12a400;
+}

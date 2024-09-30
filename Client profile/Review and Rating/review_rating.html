@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Rating | Taskker</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="review_rating.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Status Section -->
+        <div class="section status-section">
+            <h2>Task Status: <span class="status">Completed</span></h2>
+        </div>
+
+        <!-- Task Details Section -->
+        <div class="section task-details">
+            <h2>Task Details</h2>
+            <p><strong>Service:</strong> Plumbing</p>
+            <p><strong>Date:</strong> 12th August 2024</p>
+            <p><strong>Description:</strong> Fix a leaking pipe under the kitchen sink. Ensure that all pipes are properly sealed.</p>
+        </div>
+
+        <!-- Provider Profile Button -->
+        <div class="section provider-profile">
+            <button class="profile-btn">View Provider Profile</button>
+        </div>
+
+        <!-- Review and Rating Section -->
+        <div class="section review-section">
+            <h2>Leave Your Review</h2>
+            <div class="rating-wrapper">
+                <label for="rating">Rate Your Experience:</label>
+                <div class="rating-stars" id="rating-stars">
+                    <i class="ri-star-line" data-value="1"></i>
+                    <i class="ri-star-line" data-value="2"></i>
+                    <i class="ri-star-line" data-value="3"></i>
+                    <i class="ri-star-line" data-value="4"></i>
+                    <i class="ri-star-line" data-value="5"></i>
+                </div>
+            </div>
+            <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+            <button class="submit-review" id="submitReviewBtn">Submit Review</button>
+        </div>
+    </div>
+
+    <script src="review_rating.js"></script>
+</body>
+</html>

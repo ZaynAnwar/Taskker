@@ -402,7 +402,7 @@ body::-webkit-scrollbar {
   transition: transform 0.2s ease;
   display: flex;
   flex-direction: row;
-  gap: 3vh;
+  gap: 2vh;
 }
 
 .quotation-container:hover {
@@ -692,6 +692,16 @@ body::-webkit-scrollbar {
   }
   .description{
     margin-right: 0px;
+  }
+  .quotation-actions {
+    flex-direction: row;
+    width: 100%;
+  }
+  .hire-btn{
+    height: 100%;
+  }
+  .quotation-container {
+    flex-direction: column;
   }
   .quotation-details {
     display: flex;
