@@ -339,26 +339,6 @@
                     }
                   }
                 ?>
-                <div class="review-tile">
-                  <p>"Excellent service, very professional!"</p>
-                  <span>- Ahmed Khan</span>
-                </div>
-                <div class="review-tile">
-                  <p>"Great experience, highly recommend!"</p>
-                  <span>- Sara Ali</span>
-                </div>
-                <div class="review-tile">
-                  <p>"Good job done on time. Will hire again!"</p>
-                  <span>- Asim Malik</span>
-                </div>
-                <div class="review-tile">
-                  <p>"Very satisfied with the quality of work."</p>
-                  <span>- Fatima Rizwan</span>
-                </div>
-                <div class="review-tile">
-                  <p>"Efficient and polite, great service."</p>
-                  <span>- Waqar Shah</span>
-                </div>
               </div>
             </div>
           </div>
