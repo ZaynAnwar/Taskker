@@ -140,7 +140,7 @@
                 <p>Rating</p>
                 <?php 
 
-                  $sql = "SELECT AVG(rating) as rating FROM rating WHERE rating_taker = '$uid'";
+                  $sql = "SELECT ROUND(AVG(rating)) as rating FROM rating WHERE rating_taker = '$uid'";
                   $result = mysqli_query($conn, $sql);
 
                   if(mysqli_num_rows($result) > 0){
@@ -151,7 +151,6 @@
                   }
 
                 ?>
-                <span>4.5/5</span>
               </div>
               <div class="detail-item">
                 <p>Experience</p>
