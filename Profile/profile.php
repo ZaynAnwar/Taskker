@@ -171,7 +171,7 @@
                 <p>Reviews</p>
                 <?php 
 
-                  $sql = "SELECT COUNT(*) as total_reviews FROM rating WHERE review_taker = '$uid'";
+                  $sql = "SELECT COUNT(*) as total_reviews FROM reviews WHERE review_taker = '$uid'";
                   $result = mysqli_query($conn, $sql);
 
                   if(mysqli_num_rows($result)) {
@@ -181,7 +181,6 @@
                   }
                 
                 ?>
-                <span>25 Reviews</span>
               </div>
               <div class="detail-item">
                 <p>Alerts</p>
