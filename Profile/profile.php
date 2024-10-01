@@ -90,6 +90,7 @@
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="profile.css" />
   </head>
   <body>
@@ -145,7 +146,17 @@
 
                   if(mysqli_num_rows($result) > 0){
                     $row = mysqli_fetch_assoc($result);
-                    echo "<span>".$row['rating']."/5</span>";
+                    $rating = $row['rating'];
+                    if($rating != 0){
+                      for($i = 1; $i <= 5; $i++){
+                        if($i <= $rating){
+                          echo "<i class='ri-star-fill'></i>";
+                        } else {
+                          echo "<i class='ri-star-line'></i>";
+                        }
+                      }
+                    }
+                    echo "<span>".$rating."/5</span>";
                   } else {
                     echo "<span>0/5</span>";
                   }
