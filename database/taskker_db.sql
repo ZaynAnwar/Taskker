@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 -- Database: `taskker_db`
 --
 DROP DATABASE IF EXISTS `taskker_db`;
-CREATE DATABASE `taskker_db` IF NOT EXISTS;
+CREATE DATABASE IF NOT EXISTS `taskker_db`;
 Use `taskker_db`;
 
 -- --------------------------------------------------------
