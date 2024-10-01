@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2024 at 08:58 AM
+-- Generation Time: Oct 01, 2024 at 08:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,9 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Database: `taskker_db`
 --
-DROP DATABASE IF EXISTS `taskker_db`;
-CREATE DATABASE `taskker_db` IF NOT EXISTS;
-Use `taskker_db`;
+DROP Database IF EXISTS `taskker_db`;
+CREATE DATABASE IF NOT EXISTS `taskker_db`;
+USE `taskker_db`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
 
 -- --------------------------------------------------------
 
@@ -40,6 +45,8 @@ CREATE TABLE `applied_tasks` (
 
 --
 -- Dumping data for table `applied_tasks`
+--
+
 
 -- --------------------------------------------------------
 
@@ -58,7 +65,6 @@ CREATE TABLE `chat` (
 
 --
 -- Dumping data for table `chat`
---
 
 
 -- --------------------------------------------------------
@@ -82,6 +88,7 @@ CREATE TABLE `messages` (
 --
 -- Dumping data for table `messages`
 --
+
 
 -- --------------------------------------------------------
 
@@ -112,7 +119,6 @@ CREATE TABLE `provider` (
 --
 -- Dumping data for table `provider`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -124,9 +130,14 @@ CREATE TABLE `rating` (
   `rating_giver` bigint(20) NOT NULL,
   `rating_taker` bigint(20) NOT NULL,
   `rating` int(11) NOT NULL,
+  `task_id` bigint(20) NOT NULL COMMENT 'Rating given for task?',
   `rating_createdOn` date NOT NULL,
   `rating_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rating`
+--
 
 -- --------------------------------------------------------
 
@@ -138,10 +149,15 @@ CREATE TABLE `reviews` (
   `review_id` bigint(20) NOT NULL,
   `review_giver` bigint(20) NOT NULL,
   `review_taker` bigint(20) NOT NULL,
+  `task_id` bigint(20) NOT NULL COMMENT 'Review for task? ',
   `review_createdOn` date NOT NULL,
   `review_status` varchar(50) NOT NULL,
   `review_description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
 
 -- --------------------------------------------------------
 
@@ -189,7 +205,6 @@ CREATE TABLE `tasks` (
 --
 -- Dumping data for table `tasks`
 --
-
 --
 -- Indexes for dumped tables
 --
@@ -274,19 +289,19 @@ ALTER TABLE `provider`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `rating_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `rating_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `review_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `seeker`
 --
 ALTER TABLE `seeker`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Seeker Id', AUTO_INCREMENT=3;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Seeker Id', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tasks`
