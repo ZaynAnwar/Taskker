@@ -138,6 +138,19 @@
               </div>
               <div class="detail-item">
                 <p>Rating</p>
+                <?php 
+
+                  $sql = "SELECT AVG(rating) as rating FROM rating WHERE rating_taker = '$uid'";
+                  $result = mysqli_query($conn, $sql);
+
+                  if(mysqli_num_rows($result) > 0){
+                    $row = mysqli_fetch_assoc($result);
+                    echo "<span>".$row['rating']."/5</span>";
+                  } else {
+                    echo "<span>0/5</span>";
+                  }
+
+                ?>
                 <span>4.5/5</span>
               </div>
               <div class="detail-item">
