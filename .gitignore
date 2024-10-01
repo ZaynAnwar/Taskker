@@ -1,4 +1,7 @@
 uploads/profiles/*
-uploads/media/images/*
+uploads/media/images/*.jpeg
+uploads/media/images/*.png
+uploads/media/images/*.jpg 
+uploads/media/images/*.jfif
 uploads/media/videos/*
 uploads/media/voices/*
