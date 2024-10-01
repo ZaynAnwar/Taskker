@@ -169,6 +169,18 @@
               </div>
               <div class="detail-item">
                 <p>Reviews</p>
+                <?php 
+
+                  $sql = "SELECT COUNT(*) as total_reviews FROM rating WHERE review_taker = '$uid'";
+                  $result = mysqli_query($conn, $sql);
+
+                  if(mysqli_num_rows($result)) {
+                    $row = mysqli_fetch_assoc($result);
+                    $totalReviews = $row['total_reviews'];
+                    echo "<span>".$totalReviews."</span>";
+                  }
+                
+                ?>
                 <span>25 Reviews</span>
               </div>
               <div class="detail-item">
