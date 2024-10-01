@@ -5,6 +5,11 @@
     include '../connection.php';
 
     if(!isset($_SESSION['UID'])){
+      $Account_Type = $_SESSION['A_TYPE'];
+      if(!$Account_Type == 'Seeker'){
+        header('Location: ../login/login.php');
+        exit();
+      }
       header('Location: ../login/login.php');
       exit;
     }

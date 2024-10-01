@@ -9,6 +9,13 @@
       exit();
     }
 
+    if(isset($_SESSION['A_TYPE'])){
+      $type = $_SESSION['A_TYPE'];
+      if(!$type == 'Provider'){
+        header("location: ../login/login.php");
+      }
+    }
+
     $uid = $_SESSION['UID'];
 
     $userName;
