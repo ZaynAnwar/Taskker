@@ -49,8 +49,8 @@
       }
     }
 
-    $completedandActivetasksPercentage = 0;
-    $canceledTasks = 0;
+    $completedTaskpercentage = 0;
+    $canceledTaskPercentage = 0;
     $activeTaskPercentage = 0;
     $completedandActivetasksPercentage = 0;
 
