@@ -36,8 +36,8 @@
     $canceledTasks = 0;
     $activeTasks = 0;
 
-    $sql = "SELECT * FROM `tasks` WHERE `Creater` = '".$_SESSION['UID']."'";
-    $result = mysqli_query($conn, $sql);
+    $sql2 = "SELECT * FROM `tasks` WHERE `Creater` = '".$_SESSION['UID']."'";
+    $result = mysqli_query($conn, $sql2);
     while($row = mysqli_fetch_assoc($result)){
       $totalTasks++;
       if($row['task_status'] == 'Completed'){
@@ -49,10 +49,24 @@
       }
     }
 
-    $completedTaskpercentage = ($completedTasks / $totalTasks) * 100;
-    $canceledTaskPercentage = ($canceledTasks / $totalTasks) * 100;
-    $activeTaskPercentage = ($activeTasks / $totalTasks) * 100;
-    $completedandActivetasksPercentage = (($completedTasks + $activeTasks) / $totalTasks ) * 100;
+    $completedandActivetasksPercentage = 0;
+    $canceledTasks = 0;
+    $activeTaskPercentage = 0;
+    $completedandActivetasksPercentage = 0;
+
+    if($totalTasks > 0){
+      $completedTaskpercentage = ($completedTasks / $totalTasks) * 100;
+      $canceledTaskPercentage = ($canceledTasks / $totalTasks) * 100;
+      $activeTaskPercentage = ($activeTasks / $totalTasks) * 100;
+      $completedandActivetasksPercentage = (($completedTasks + $activeTasks) / $totalTasks ) * 100;
+    }
+
+
+    // Average Rating
+    $avgRating;
+    $sql3 = "SELECT * FROM `ratings` WHERE `rating_taker` = '".$_SESSION['UID']."'";
+
+
 
 
 ?>
@@ -340,7 +354,13 @@
                             <span class="provider-service">Plumbing</span>
                           </div>
                           <div class="provider-rating">
-                            <span>Rating : ⭐ 4.5</span>
+                            <?php 
+                              $sql = "SELECT AVG(rating) as avgRating FROM rating WHERE rating_taker = '" . $data['pid'] . "'";
+                              $result = mysqli_query($conn, $sql);
+                              $innerrow = mysqli_fetch_assoc($result);
+                              
+                              echo "<span>Rating : ⭐ ". round($innerrow['avgRating'], 1). "</span>";
+                            ?>
                           </div>  
                           </div>
                           <div class="quotation-details">
@@ -365,7 +385,12 @@
                         </div> 
                         
                         <div class="quotation-actions">
-                          <button class="btn hire-btn"><a href="">Review profile</a></button>
+                          <form action="Review and Rating/review_rating.php" method="post">
+                            <input type="hidden" name="provider_id" value="<?php echo $data['pid']?>">
+                            <input type="hidden" name="task_id" value="<?php echo $row['task_id']?>">
+                            <input type="hidden" name="task_title" value="<?php echo $row['task_title']?>">
+                            <input type="submit" name="REVIEW" class="btn hire-btn" value="Review Profile">
+                          </form>
                           <button class="btn message-btn">Hire</button>
                           <form action="../Chat system/chat.php" method="post">
                             <input type="hidden" name="provider_id" value="<?php echo $data['pid']?>">
