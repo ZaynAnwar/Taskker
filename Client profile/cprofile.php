@@ -118,8 +118,9 @@
               <img src="../uploads/profiles/<?php echo $userImage ?>" alt="<?php echo $userImage ?>" class="profile-image" />
             </div>
             <h3 id="uname"><?php echo $userName ?></h3>
-            <button class="appointment-btn"><a href="/post/time & date/post.html">Post New Task</a></button>
+            <button class="appointment-btn"><a href="/post/time_date/post.html">Post New Task</a></button>
             <button class="appointment-btn"><a href="">Update Password</a></button>
+            <button class="appointment-btn"><a href="">Chat</a></button>
 
             <div class="client-details">
               <div class="detail-item">

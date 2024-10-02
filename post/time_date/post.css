@@ -75,6 +75,10 @@ form {
   color: #5e6d55d7;
   margin-top: 8vh;
 }
+
+.right .date2 {
+  margin-top: 8vh;
+}
 .right .text {
   border: 2px solid #14a800;
   font-size: 2.5vh;
@@ -89,6 +93,24 @@ form {
 .right .text::placeholder {
   color: #5e6d55d7;
 }
+
+#category {
+  height: 5vh;
+  width: 9.2vw;
+  border: 2px solid #14a800;
+  border-radius: 5px;
+  width: 20vw;
+  font-size: 2.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 3vh;
+  padding-right: 3vh;
+  color: #5e6d55d7;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 .right .check {
   margin-top: 5vh;
   display: none;
@@ -231,13 +253,23 @@ fieldset {
     justify-content: center;
 } */
 
+
+
+
 #sub {
-  height: 6vh;
+  height: 10vh;
   width: 40vw;
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 #sub input[type="submit"] {
   height: 6vh;
-  width: 40vw;
+  width: 100%;
   font-size: 3vh;
   background-color: #14a800;
   border: none;
@@ -386,10 +418,10 @@ fieldset {
     display: flex;
     gap: 2vh;
   }
-  .check .cn p{
+  .check .cn p {
     font-size: 2vh;
   }
-  .check .cn #chb{
+  .check .cn #chb {
     height: 2vh;
     width: 2vh;
   }
@@ -638,11 +670,11 @@ fieldset {
     display: flex;
     gap: 2vh;
   }
-  .check .cn #chb{
+  .check .cn #chb {
     height: 2vh;
     width: 2vh;
   }
-  .check .cn p{
+  .check .cn p {
     font-size: 2vh;
   }
   fieldset {
@@ -885,11 +917,11 @@ fieldset {
     display: flex;
     gap: 2vh;
   }
-  .check .cn #chb{
+  .check .cn #chb {
     height: 2vh;
     width: 2vh;
   }
-  .check .cn p{
+  .check .cn p {
     font-size: 2vh;
   }
   fieldset {
@@ -1046,7 +1078,6 @@ fieldset {
     background-color: #14a800e5;
   }
 }
-
 
 /*Cancel button*/
 .cb {

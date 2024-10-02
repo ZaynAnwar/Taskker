@@ -428,6 +428,188 @@ body::-webkit-scrollbar {
   }
   
 
+
+/* applied Section   */
+.applied-section {
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.applied-in{
+  background-color: #eeeeee;
+  height: 380px;
+  width: 100%;
+  overflow-y: auto;
+  border-radius: 2vh;
+  padding-top: 15px;
+}
+
+.applied-in::-webkit-scrollbar {
+  background-color: #fff;
+  width: 0.3vw;
+}
+.applied-in::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dddddd;
+
+}
+
+.applied-section h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.applied-container {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* box-shadow: 4px 4px 50px rgba(0, 0, 0, 0.1), -4px -4px 50px rgba(0, 0, 0, 0.1); */
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  gap: 2vh;
+}
+
+.applied-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.applied-inner{
+  width: 85%;
+}
+
+.applied-actions{
+  width: 13%;
+  display: flex;
+  flex-direction: column;
+}
+
+.applied-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.provider-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.provider-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #14a800e5;
+}
+
+.provider-service {
+  font-size: 17px;
+  font-weight: 900;
+  color: #6b6b6b;
+}
+
+.provider-rating span {
+  font-size: 16px;
+  color: #ffa500;
+  font-weight: 500;
+}
+
+.applied-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detail {
+  font-size: 14px;
+  color: #444;
+}
+
+.detail strong {
+  color: #14a800e5;
+}
+
+.applied-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+}
+.description p {
+  margin-left: 3px;
+  font-size: 14px;
+  color: #444;
+  width: 100%;
+  height: 40px;
+  overflow-y: auto;
+  text-align: justify;
+}
+.description p::-webkit-scrollbar {
+  background-color: #fff;
+  width: 0.3vw;
+}
+.description p::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dddddd;
+}
+
+.applied-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.hire-btn,
+.message-btn {
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hire-btn {
+  background-color: #14a800e5;
+  color: white;
+}
+.hire-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.message-btn {
+  background-color: #54604c;
+  color: white;
+}
+
+.hire-btn:hover {
+  background-color: #0f8500;
+}
+
+.message-btn:hover {
+  background-color: #44513a;
+}
+
+
 @media screen and (max-width: 1000px) {
   .client-profile-page {
     width: 95%;
@@ -578,13 +760,13 @@ body::-webkit-scrollbar {
   .description{
     margin-right: 0px;
   }
-  .quotation-details {
+  .applied-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 15px;
   }
-  .quotation-footer {
+  .applied-footer {
     height: 100px;
     display: flex;
     flex-direction: column;
