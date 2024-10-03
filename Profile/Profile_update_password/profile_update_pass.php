@@ -1,3 +1,30 @@
+<?php 
+
+  session_start();
+
+  include '../../connection.php';
+
+
+  $uid = $_SESSION['UID'];
+
+  if(isset($_POST['UPDATE_PASS'])){
+    $pass = $_POST['new-password'];
+
+    $sql = "UPDATE `provider` SET `password` = '$pass' WHERE `pid` = '$uid' ";
+    $stmt = mysqli_query($conn, $sql);
+
+    if($stmt){
+      echo "<script>alert('Password updated successfully!')</script>";
+      header("location: ../profile.php");
+    } else {
+      echo "<script>alert('Password update failed!')</script>";
+    }
+
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +39,7 @@
         <h1>Update Password</h1>
         <p>Please enter your new password.</p>
 
-        <form id="change-password-form">
+        <form id="change-password-form" method="post">
           <div class="pass-in">
             <div class="pass-up">
               <label for="new-password">New Password</label>
@@ -36,13 +63,13 @@
               />
             </div>
           </div>
-          <button type="submit" class="change-password-btn">
+          <button type="submit" name="UPDATE_PASS" class="change-password-btn">
             Update Password
           </button>
         </form>
 
         <div class="back-to-login">
-          <a href="profile.php">← Back to profile</a>
+          <a href="../profile.php">← Back to profile</a>
         </div>
       </div>
     </div>
