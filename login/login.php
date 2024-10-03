@@ -49,6 +49,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
@@ -98,6 +100,23 @@
       <div class="signup-section">
         <h3>Don't have an account? Sign up with</h3>
         <div class="social-login">
+          <!-- Google Sign-In button -->
+<div id="g_id_onload"
+     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin" data-type="standard"></div>
+
+<script>
+  function handleCredentialResponse(response) {
+    // Handle the sign-in response
+    console.log("Encoded JWT ID token: " + response.credential);
+    
+    // Send the token to your server for verification
+    // e.g., using fetch to send the token to your backend
+  }
+</script>
           <button class="google">Continue with Google</button>
           <button class="facebook">Continue with Facebook</button>
           <button class="apple">Continue with Apple</button>

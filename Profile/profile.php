@@ -399,7 +399,7 @@
                           <div class="description">
                             <div class="detail"><strong>Description:</strong></div>
                             <p>
-                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsa nobis cumque, pariatur tempore modi nesciunt et quam exercitationem nam in labore nihil quo eaque? Cumque numquam illo explicabo dolorem rem earum tempora excepturi voluptate nisi, ducimus a, laborum perferendis? Nihil voluptates, cumque quos officiis aliquid voluptatum esse odio neque explicabo in minus asperiores facilis numquam? Ut, commodi! Molestias saepe tenetur velit autem omnis, harum voluptatibus amet nihil asperiores excepturi perspiciatis debitis exercitationem ducimus tempora tempore blanditiis perferendis provident expedita? Optio, tempora, necessitatibus vel mollitia obcaecati corporis earum unde soluta dicta cum nostrum voluptate sed quam officia. Repudiandae, voluptatum nostrum!
+                              <?php echo $row['task_description'] ?>
                             </p>
                           </div>
                           </div>
@@ -438,7 +438,7 @@
                           <div class="description">
                             <div class="detail"><strong>Description:</strong></div>
                             <p>
-                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsa nobis cumque, pariatur tempore modi nesciunt et quam exercitationem nam in labore nihil quo eaque? Cumque numquam illo explicabo dolorem rem earum tempora excepturi voluptate nisi, ducimus a, laborum perferendis? Nihil voluptates, cumque quos officiis aliquid voluptatum esse odio neque explicabo in minus asperiores facilis numquam? Ut, commodi! Molestias saepe tenetur velit autem omnis, harum voluptatibus amet nihil asperiores excepturi perspiciatis debitis exercitationem ducimus tempora tempore blanditiis perferendis provident expedita? Optio, tempora, necessitatibus vel mollitia obcaecati corporis earum unde soluta dicta cum nostrum voluptate sed quam officia. Repudiandae, voluptatum nostrum!
+                              <?php echo $row['task_description'] ?>
                             </p>
                           </div>
                           </div>
