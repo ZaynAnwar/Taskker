@@ -122,7 +122,7 @@
             <h3><?php echo $userName ?></h3>
             
             <button class="appointment-btn"><a href="/find task/find_task.php">Find Task</a></button>
-            <button class="appointment-btn"><a href="/Profile_update_password/profile_update_pass.html">Update Password</a></button>
+            <a href="Profile_update_password/profile_update_pass.php" class="appointment-btn up-btn" style="text-decoration: none;">Update Password</a>
 
             <div class="client-details">
               <div class="detail-item">
