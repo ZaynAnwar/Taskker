@@ -156,12 +156,20 @@ textarea {
   cursor: pointer;
 }
 #sub {
-  height: 6vh;
-  width: 20vw;
+  height: 10vh;
+  width: 40vw;
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
+
 #sub input[type="submit"] {
   height: 6vh;
-  width: 20vw;
+  width: 100%;
   font-size: 3vh;
   background-color: #14a800;
   border: none;

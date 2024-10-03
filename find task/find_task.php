@@ -38,7 +38,6 @@
                         <option value="All">All</option>
                         <option value="electrician">Electrician</option>
                         <option value="plumber">Plumber</option>
-                        <option value="mechanic">Mechanic</option>
                         <option value="gardener">Gardener</option>
                         <option value="Painter">Painter</option>
                     </select>

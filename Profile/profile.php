@@ -122,7 +122,7 @@
             <h3><?php echo $userName ?></h3>
             
             <button class="appointment-btn"><a href="/find task/find_task.php">Find Task</a></button>
-            <a href="Profile_update_password/profile_update_pass.php" class="appointment-btn up-btn" style="text-decoration: none;">Update Password</a>
+            <button class="appointment-btn"><a href="/Profile_update_password/profile_update_pass.html">Update Password</a></button>
 
             <div class="client-details">
               <div class="detail-item">
@@ -169,18 +169,7 @@
               </div>
               <div class="detail-item">
                 <p>Reviews</p>
-                <?php 
-
-                  $sql = "SELECT COUNT(*) as total_reviews FROM reviews WHERE review_taker = '$uid'";
-                  $result = mysqli_query($conn, $sql);
-
-                  if(mysqli_num_rows($result)) {
-                    $row = mysqli_fetch_assoc($result);
-                    $totalReviews = $row['total_reviews'];
-                    echo "<span>".$totalReviews."</span>";
-                  }
-                
-                ?>
+                <span>25 Reviews</span>
               </div>
               <div class="detail-item">
                 <p>Alerts</p>
@@ -377,6 +366,95 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- applied Section -->
+      <div class="applied-section">
+        <h3>Tasks you applied for</h3>
+
+              <div class="applied-in">
+    
+                      <div class="applied-container">
+                        <div class="applied-inner">
+                          <div class="applied-header">
+                          <div class="provider-info">
+                            <span class="provider-name">Zain Anwar</span>
+                            <span class="provider-service">Plumbing</span>
+                          </div>
+                        
+                          </div>
+                          <div class="applied-details">
+                          <div class="detail">
+                            <strong>Location:</strong> 
+                          </div>
+                          <div class="detail">
+                            <strong>Date:</strong> 22-10-2024
+                          </div>
+                          <div class="detail">
+                            <strong>Estimated price:</strong> 1000 PKR
+                          </div>
+                          </div>
+                          <div class="applied-footer">
+                          <div class="description">
+                            <div class="detail"><strong>Description:</strong></div>
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsa nobis cumque, pariatur tempore modi nesciunt et quam exercitationem nam in labore nihil quo eaque? Cumque numquam illo explicabo dolorem rem earum tempora excepturi voluptate nisi, ducimus a, laborum perferendis? Nihil voluptates, cumque quos officiis aliquid voluptatum esse odio neque explicabo in minus asperiores facilis numquam? Ut, commodi! Molestias saepe tenetur velit autem omnis, harum voluptatibus amet nihil asperiores excepturi perspiciatis debitis exercitationem ducimus tempora tempore blanditiis perferendis provident expedita? Optio, tempora, necessitatibus vel mollitia obcaecati corporis earum unde soluta dicta cum nostrum voluptate sed quam officia. Repudiandae, voluptatum nostrum!
+                            </p>
+                          </div>
+                          </div>
+                        </div> 
+                        
+                        <div class="applied-actions">
+               
+                          <button class="btn hire-btn">View Profile</button>
+                          <button class="btn message-btn">Cancel</button>
+                          <button class="btn hire-btn">Chat</button>
+
+                        </div>
+
+                      </div>
+                      <div class="applied-container">
+                        <div class="applied-inner">
+                          <div class="applied-header">
+                          <div class="provider-info">
+                            <span class="provider-name">Zain Anwar</span>
+                            <span class="provider-service">Plumbing</span>
+                          </div>
+                        
+                          </div>
+                          <div class="applied-details">
+                          <div class="detail">
+                            <strong>Location:</strong> 
+                          </div>
+                          <div class="detail">
+                            <strong>Date:</strong> 22-10-2024
+                          </div>
+                          <div class="detail">
+                            <strong>Estimated price:</strong> 1000 PKR
+                          </div>
+                          </div>
+                          <div class="applied-footer">
+                          <div class="description">
+                            <div class="detail"><strong>Description:</strong></div>
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsa nobis cumque, pariatur tempore modi nesciunt et quam exercitationem nam in labore nihil quo eaque? Cumque numquam illo explicabo dolorem rem earum tempora excepturi voluptate nisi, ducimus a, laborum perferendis? Nihil voluptates, cumque quos officiis aliquid voluptatum esse odio neque explicabo in minus asperiores facilis numquam? Ut, commodi! Molestias saepe tenetur velit autem omnis, harum voluptatibus amet nihil asperiores excepturi perspiciatis debitis exercitationem ducimus tempora tempore blanditiis perferendis provident expedita? Optio, tempora, necessitatibus vel mollitia obcaecati corporis earum unde soluta dicta cum nostrum voluptate sed quam officia. Repudiandae, voluptatum nostrum!
+                            </p>
+                          </div>
+                          </div>
+                        </div> 
+                        
+                        <div class="applied-actions">
+               
+                          <button class="btn hire-btn">View Profile</button>
+                          <button class="btn message-btn">Cancel</button>
+                          <button class="btn hire-btn">Chat</button>
+
+                        </div>
+
+                      </div>
+
+              </div>
+            </div>
       </div>
     </div>
 

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="post.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!--- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--- JQuery -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -36,7 +37,23 @@
             reqired
             placeholder="e.g. Need Cleaner"
           />
-          <h4>When you want to get done </h4><span>(Please select only one of them. You may also skip them if you are <strong>Flexible</strong> )</span>
+
+          <div class="filter-group">
+            <h4>Please enter the Task Category</h4>
+            <select id="category">
+              <option value="electrician">Electrician</option>
+              <option value="plumber">Plumber</option>
+              <option value="gardener">Gardener</option>
+              <option value="Painter">Painter</option>
+            </select>
+          </div>
+
+          <h4 class="date2">When you want to get done</h4>
+          <span
+            >(Please select only one of them. You may also skip them if you are
+            <strong>Flexible</strong> )</span
+          >
+
           <fieldset class="btns" required="" id="dateFieldset">
             <div class="btns">
               <div class="btnin" id="onDateBtn">
@@ -53,18 +70,15 @@
               <div class="btnin" id="flexButton">
                 <button type="button" id="btn3" name="btn3">I'm Flexible</button>
               </div>
-            -->
-            </div>
+            --></div>
           </fieldset>
           <div id="errorMessages"></div>
-          <div id="sub">
-              <input type="submit" value="Next" name="ADD_POST" />
+            <div id="sub">
+              <input type="submit" value="Next" name="ADD_LOCATION" />
+
           </div>
         </div>
       </form>
     </div>
-
-     
-
   </body>
 </html>

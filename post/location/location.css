@@ -147,9 +147,9 @@ input[type="text"] {
   margin-bottom: 30vh;
 }
 
-.right .btnright {
+#sub {
   height: 10vh;
-  width: 70vw;
+  width: 40vw;
   position: fixed;
   z-index: 9;
   bottom: 0;
@@ -158,60 +158,10 @@ input[type="text"] {
   align-items: center;
   justify-content: flex-start;
 }
-.right .btnright .btns {
-  height: 6vh;
-  width: 40vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.right .btnright .btns button {
-  height: 6vh;
-  width: 20vw;
-  font-size: 3vh;
-  background-color: #14a800;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-}
-.right .btnright .btns button:hover {
-  background-color: #14a800e5;
-}
-.right .btnright .btns button:nth-child(1) {
-  height: 6vh;
-  width: 20vw;
-  font-size: 3vh;
-  background-color: #dadada;
-  border-radius: 50px;
-  cursor: pointer;
-}
-.right .btnright .btns button:nth-child(1):hover a {
-  background-color: #dadada;
-  border: 2px solid #14a800;
-}
-.right .btnright .btns button:nth-child(1) a {
-  color: #14a800;
-}
-.right .btnright .btns button a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  border: none;
-  height: 6vh;
-  width: 20vw;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-#sub {
-  height: 6vh;
-  width: 20vw;
-}
 #sub input[type="submit"] {
   height: 6vh;
-  width: 20vw;
+  width: 100%;
   font-size: 3vh;
   background-color: #14a800;
   border: none;
