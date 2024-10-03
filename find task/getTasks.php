@@ -71,16 +71,20 @@ if ($result) {
         $taskListings .= "
         <div class='task-item'>
             <div class='task-info'>
-                <h3>" . htmlspecialchars($row['task_title']) . "</h3> 
-                <p>Location: " . htmlspecialchars($row['task_city']) . "</p> 
-                <p>Date: " . htmlspecialchars($row['task_createdOn']) . "</p> 
+                <h3 class ='client_name'> Zain Anwar </h3>
+                <h3 class='task-title'>" . htmlspecialchars($row['task_title']) . "</h3> 
+                <div class='task-in'>
+                    <p><strong>Location:</strong> " . htmlspecialchars($row['task_city']) . "</p> 
+                    <p><strong>Date:</strong> " . htmlspecialchars($row['task_createdOn']) . "</p> 
+                    <p><strong>Estimated price:</strong> 2000 </p> 
+                </div>
             </div>
             <div class='task-actions'>
                 <form action='details/details.php' method='post'>
                     <input type='hidden' name='task_id' value='". htmlspecialchars($row['task_id']) . "' />
                     <input type='submit' class='details-btn' name='TASK_DETAIL' value='Details' />
                 </form>
-                ". ($isTaskApplied ? "<p>Already Applied</p>" : "<form onsubmit='apply(" . $row['task_id'] . "); return false;'><input type='submit' class='apply-btn' id='btn_". $row['task_id'] ."' name='TASK_APPLY' value='Apply' /></form>") . "
+                ". ($isTaskApplied ? "<p class='applied'>Already Applied</p>" : "<form onsubmit='apply(" . $row['task_id'] . "); return false;'><input type='submit' class='apply-btn' id='btn_". $row['task_id'] ."' name='TASK_APPLY' value='Apply' /></form>") . "
             </div>
         </div>
         ";

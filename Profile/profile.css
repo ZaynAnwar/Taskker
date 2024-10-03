@@ -760,6 +760,15 @@ body::-webkit-scrollbar {
   .description{
     margin-right: 0px;
   }
+  .applied-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0vh;
+  }
+  .applied-actions{
+    flex-direction: row;
+    width: 100%;
+  }
   .applied-details {
     display: flex;
     flex-direction: column;
