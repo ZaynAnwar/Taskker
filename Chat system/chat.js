@@ -194,6 +194,7 @@ function sendMessage(messageType, content, sender, receiver) {
 let displayedMessageIds = new Set();
 
 function updateChat(sender, receiver, lastTimeStamp) {
+    console.log('Atif');
 
     $.ajax({
         url: 'updateChat.php',
@@ -220,7 +221,6 @@ function updateChat(sender, receiver, lastTimeStamp) {
                             appendAudio(`../uploads/media/voices/${message.message_media}`, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
                         } 
                         else {
-                            appendMessage(message.sender, 'sent', formatTime(message.message_timestamp));
                             appendMessage(message.message_content, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
                         }
                         displayedMessageIds.add(message.message_id); // Add the message ID to the set - @atif

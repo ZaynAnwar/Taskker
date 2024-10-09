@@ -135,3 +135,4 @@ chatList.addEventListener('click', function(event) {
 
 });
 
+// Scripts added by @Atif
