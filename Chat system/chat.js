@@ -229,6 +229,7 @@ function updateChat(sender, receiver, lastTimeStamp) {
                             appendAudio(`../uploads/media/voices/${message.message_media}`, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
                         } 
                         else {
+                            console.log('sender',message.sender);
                             appendMessage(message.message_content, message.sender === myID ? 'sent' : 'received', formatTime(message.message_timestamp));
                         }
                         displayedMessageIds.add(message.message_id); // Add the message ID to the set - @atif

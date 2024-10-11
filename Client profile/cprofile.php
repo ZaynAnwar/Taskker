@@ -97,7 +97,7 @@
         
         <div class="info-container">
           <a href="../index.php">Home</a>
-          <a href="../post/time & date/post.html">Post Task</a>
+          <a href="../post/time_date/post.html">Post Task</a>
           <a href=".././logout.php">Logout</a>
         </div>
         <div class="user-profile">
