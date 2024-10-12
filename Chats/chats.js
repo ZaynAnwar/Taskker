@@ -136,3 +136,11 @@ chatList.addEventListener('click', function(event) {
 });
 
 // Scripts added by @Atif
+
+function sendMessage() {
+    const message = messageInput.value.trim();
+    if (message !== '') {
+        appendMessage(message, 'sent');
+        messageInput.value = ''; // Clear input after sending
+    }
+}
