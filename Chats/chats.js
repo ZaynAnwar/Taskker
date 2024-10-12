@@ -144,3 +144,13 @@ function sendMessage() {
         messageInput.value = ''; // Clear input after sending
     }
 }
+
+function sendMedia() {
+    const file = mediaInput.files[0];
+    if (file) {
+        const fileType = file.type.startsWith('image') ? 'image' : 'video';
+        const fileURL = URL.createObjectURL(file);
+        appendMedia(fileType, fileURL, 'sent');
+    }
+    mediaInput.value = ''; // Clear file input after sending
+}
