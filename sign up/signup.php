@@ -69,6 +69,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <link rel="stylesheet" href="signup.css">
 </head>
 <body>
@@ -119,6 +120,21 @@
   </div>
   
   <div class="social-login">
+  <div id="g_id_onload"
+     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+     data-context="signup"
+     data-ux_mode="popup"
+     data-login_uri="https://yourdomain.com/auth/callback"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="outline"
+     data-text="signup_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
     <button class="google">Continue with Google</button>
     <button class="facebook">Continue with Facebook</button>
     <button class="apple">Continue with Apple</button>
