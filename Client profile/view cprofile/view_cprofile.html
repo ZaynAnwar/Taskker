@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="view_cprofile.css" />
+  </head>
+  <body>
+    <div class="client-profile-page">
+     <!-- Header -->
+     <div class="header">
+      <div class="header-in">
+        <div class="user-profile">
+          <img src="" class="avatar" onclick="toggleProfileEditPopup()" />
+        </div>
+        <div class="header-inn">
+          <h2>Provider's name</h2>
+          <h4>Location</h4>
+        </div>
+      </div>
+
+      <!-- <div class="info-container">
+        <din class="infoc-in">
+          <h4>Rating</h4>
+          <span>4</span>
+        </din>
+        <din class="infoc-in">
+          <h4>Expertise</h4>
+          <span>Plumbing</span>
+        </din>
+        <din class="infoc-in">
+          <h4>Experience</h4>
+          <span>7</span>
+        </din>
+        <div class="infoc-in">
+          <div class="infoc-inn">
+            <div class="infoc-innn">
+              <h4>Expertise:</h4>
+              <span>Plumbing</span>
+            </div>
+            <div class="infoc-innn">
+              <h4>Rating:</h4>
+              <span>4/5</span>
+            </div>
+            <div class="infoc-innn">
+              <h4>Experience:</h4>
+              <span>7 years</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="dash-in">
+        <i class="ri-arrow-left-line"></i>
+        <a href="">Back To <br />the Tasks</a>
+      </div>
+    </div>
+
+      <!-- Main Profile Section -->
+      <div class="main-profile-section">
+        <div class="right-panel">
+          <!-- Stats Section -->
+          <div class="stats-section">
+            <div class="stat">
+              <h3>5</h3>
+              <p>All Bookings</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: 35.67%; background-color: #14a800e5"
+                ></div>
+              </div>
+              <span>35.67%</span>
+            </div>
+            <div class="stat">
+              <h3>2</h3>
+              <p>Completed</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: 25%; background-color: #54604c"
+                ></div>
+              </div>
+              <span>25%</span>
+            </div>
+            <div class="stat">
+              <h3>5</h3>
+              <p>Cancelled</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  style="width: 35.67%; background-color: #f8d7da"
+                ></div>
+              </div>
+              <span>35.67%</span>
+            </div>
+          </div>
+
+          <!-- Appointments Section -->
+          <div class="appointments-section">
+            <div class="tabs">
+              <button class="tab active" id="appointmentsTab">History</button>
+            </div>
+
+            <!-- Appointments Content -->
+            <div class="appointment-content" id="appointmentsContent">
+              <div class="appointment-item">
+                <p><strong>29 Sep</strong> - Plumbing</p>
+                <span class="status cancelled">Cancelled</span>
+                <span class="price">$50</span>
+              </div>
+              <div class="appointment-item">
+                <p><strong>15 Oct</strong> - Carpentry</p>
+                <span class="status booked">Booked</span>
+                <span class="price">$345</span>
+              </div>
+              <div class="appointment-item">
+                <p><strong>11 Nov</strong> - Painting</p>
+                <span class="status done">Done</span>
+                <span class="price">$130</span>
+              </div>
+              <div class="appointment-item">
+                <p><strong>13 Apr</strong> - Hair Drying</p>
+                <span class="status done">Done</span>
+                <span class="price">$50</span>
+              </div>
+              <div class="appointment-item">
+                <p><strong>24 Feb</strong> - Blue Print Structure</p>
+                <span class="status booked">Booked</span>
+                <span class="price">$80</span>
+              </div>
+            </div>
+
+            <!-- Invoices Content (Initially Hidden) -->
+            <div class="invoice-content hidden" id="invoicesContent">
+              <div class="invoice-item">
+                <p><strong>Plumbing</strong> - Invoice #12345</p>
+                <span class="price">$50</span>
+              </div>
+              <div class="invoice-item">
+                <p><strong>Carpentry</strong> - Invoice #67890</p>
+                <span class="price">$345</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
