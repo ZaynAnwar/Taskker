@@ -22,7 +22,6 @@ function appendMessage(message, type, timeStamp) {
 
 // Function to append media (image or video) to the chat
 function appendMedia(mediaType, src, type, timestamp) {
-    console.log("appendMedia: " + mediaType);
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', type);
     if (mediaType === 'image') {
@@ -90,10 +89,8 @@ mediaInput.addEventListener('change', function() {
             contentType: false, // Required for FormData
             processData: false, // Required for FormData
             success: function(response) {
-                console.log(response)
                 response = JSON.parse(response);
                 if (response.status === 200) {
-                    console.log('Media uploaded successfully.');
                     // Optionally, you can update the chat with the server-side URL or other data
                 } else {
                     console.error('Media upload failed:', response.message);
@@ -139,10 +136,9 @@ recordVoiceBtn.addEventListener('click', function() {
                         contentType: false, // Required for FormData
                         processData: false, // Required for FormData
                         success: function(response) {
-                            console.log(response);
                             response = JSON.parse(response);
                             if (response.status === 200) {
-                                console.log('Audio uploaded successfully.');
+
                             } else {
                                 console.error('Audio upload failed:', response.message);
                             }
@@ -172,8 +168,6 @@ messageInput.addEventListener('keypress', function(event) {
 });
 
 function sendMessage(messageType, content, sender, receiver) {
-    console.log('SendMessage() Called');
-    console.log("Time Stamp In send Message: " + lastTimeStamp);
     
     $.ajax({
         url: "sendMessage.php",
@@ -190,7 +184,6 @@ function sendMessage(messageType, content, sender, receiver) {
             
             updateChat(sender, receiver, lastTimeStamp);
             //appendMessage(content, sender === myID ? 'sent' : 'received');
-            console.log(response);
         },
         error: function(xhr, status, error) {
             console.error('Error sending message:', error);
@@ -201,14 +194,13 @@ function sendMessage(messageType, content, sender, receiver) {
 let displayedMessageIds = new Set();
 
 function updateChat(sender, receiver, lastTimeStamp) {
-    console.log('updateChat() Called');
+    console.log('Atif');
 
     $.ajax({
         url: 'updateChat.php',
         type: 'GET',
         data: { timeStamp: lastTimeStamp, sender: sender, receiver: receiver },
         success: function(response) {
-            console.log(response);
             // Ensure response is an object
             if (response && typeof response === 'object') {
                 const messages = response.Message; // Get the messages - @atif
