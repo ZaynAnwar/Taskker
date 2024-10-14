@@ -97,7 +97,7 @@
         
         <div class="info-container">
           <a href="../index.php">Home</a>
-          <a href="../post/time & date/post.html">Post Task</a>
+          <a href="../post/time_date/post.html">Post Task</a>
           <a href=".././logout.php">Logout</a>
         </div>
         <div class="user-profile">
@@ -120,7 +120,7 @@
             <h3 id="uname"><?php echo $userName ?></h3>
             <button class="appointment-btn"><a href="/post/time_date/post.html">Post New Task</a></button>
             <button class="appointment-btn"><a href="">Update Password</a></button>
-            <button class="appointment-btn"><a href="../Chats/chats.php">Chat</a></button>
+            <button class="appointment-btn"><a href="">Chat</a></button>
 
             <div class="client-details">
               <div class="detail-item">

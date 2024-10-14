@@ -282,6 +282,7 @@ function updateChat(chatId){
 
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
+<<<<<<< HEAD
         },
         error : function (error) {
             console.log(error)
@@ -293,3 +294,24 @@ setInterval(updateChat(chatId), 5000);
 function updateChatId(chat){
     chatId = chat;
 }
+=======
+// Scripts added by @Atif
+
+function sendMessage() {
+    const message = messageInput.value.trim();
+    if (message !== '') {
+        appendMessage(message, 'sent');
+        messageInput.value = ''; // Clear input after sending
+    }
+}
+
+function sendMedia() {
+    const file = mediaInput.files[0];
+    if (file) {
+        const fileType = file.type.startsWith('image') ? 'image' : 'video';
+        const fileURL = URL.createObjectURL(file);
+        appendMedia(fileType, fileURL, 'sent');
+    }
+    mediaInput.value = ''; // Clear file input after sending
+}
+>>>>>>> refs/remotes/origin/main

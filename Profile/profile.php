@@ -124,6 +124,7 @@
             
             <button class="appointment-btn"><a href="/find task/find_task.php">Find Task</a></button>
             <button class="appointment-btn"><a href="/Profile_update_password/profile_update_pass.html">Update Password</a></button>
+            <button class="appointment-btn"><a href="">Chats</a></button>
 
             <div class="client-details">
               <div class="detail-item">
@@ -140,6 +141,7 @@
               </div>
               <div class="detail-item">
                 <p>Rating</p>
+                <div class="rating-in">
                 <?php 
 
                   $sql = "SELECT ROUND(AVG(rating)) as rating FROM rating WHERE rating_taker = '$uid'";
@@ -163,6 +165,7 @@
                   }
 
                 ?>
+                </div>
               </div>
               <div class="detail-item">
                 <p>Experience</p>
