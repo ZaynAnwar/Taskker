@@ -45,7 +45,6 @@ session_start();
               $member1 = $row['member_1'];
               $member2 = $row['member_2'];
               
-              // My task is to actually show the user that is not me, we should also check usertype to know if the user is a client or a provider
               if($userType == 'Seeker'){
                 if($member1 == $uid){
                   $sql2 = "SELECT * FROM `provider` WHERE pid = '$member2'";
