@@ -2,7 +2,7 @@
 
 include '../connection.php';
 
-$id = $_GET['id'];
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 $message = array();
 

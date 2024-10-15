@@ -182,6 +182,8 @@ session_start();
       </div>
     </div>
 
+
+
     <script>
         let myId = <?php echo $_SESSION['UID'] ?>
     </script>
