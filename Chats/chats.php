@@ -1,10 +1,11 @@
 <?php
 
-  session_start();
+session_start();
   $uid = $_SESSION['UID'];
   $userType = $_SESSION['A_TYPE'];
 
   include '../connection.php';
+
 
 
 ?>
@@ -19,6 +20,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="chats.css" />
   </head>
   <body>
@@ -43,7 +45,6 @@
               $member1 = $row['member_1'];
               $member2 = $row['member_2'];
               
-              // My task is to actually show the user that is not me, we should also check usertype to know if the user is a client or a provider
               if($userType == 'Seeker'){
                 if($member1 == $uid){
                   $sql2 = "SELECT * FROM `provider` WHERE pid = '$member2'";
@@ -54,7 +55,7 @@
                       $userAvatar = $row2['image'];
                       $userId = $member2;
                       echo '<ul id="chatUserList">
-                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.'>
+                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.' data-acType="Provider">
                                 <img src="../uploads/profiles/'. $userAvatar .'" alt="../uploads/profiles/'. $userAvatar .'" class="user-avatar" />
                                 <span>'.$userName.'</span>
                               </li>
@@ -71,7 +72,7 @@
                       $userAvatar = $row2['image'];
                       $userId = $member1;
                       echo '<ul id="chatUserList">
-                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.'>
+                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.' data-acType="Provider">
                                 <img src="../uploads/profiles/'. $userAvatar .'" alt="../uploads/profiles/'. $userAvatar .'" class="user-avatar" />
                                 <span>'.$userName.'</span>
                               </li>
@@ -89,7 +90,7 @@
                       $userAvatar = $row2['image'];
                       $userId = $member2;
                       echo '<ul id="chatUserList">
-                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.'>
+                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.' data-acType="Seeker">
                                 <img src="../uploads/profiles/'. $userAvatar .'" alt="../uploads/profiles/'. $userAvatar .'" class="user-avatar" />
                                 <span>'.$userName.'</span>
                               </li>
@@ -105,7 +106,7 @@
                       $userAvatar = $row2['image'];
                       $userId = $member1;
                       echo '<ul id="chatUserList">
-                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.'>
+                              <li class="chat-item" data-userId='.$userId.' data-userName='.$userName.' data-acType="Seeker">
                                 <img src="../uploads/profiles/'. $userAvatar .'" alt="../uploads/profiles/'. $userAvatar .'" class="user-avatar" />
                                 <span>'.$userName.'</span>
                               </li>
@@ -125,7 +126,7 @@
         <!-- Chat Header -->
         <header class="chat-header">
           <div class="user-info">
-            <img src="user-avatar.jpg" class="avatar" alt="User Avatar" />
+            <img src="user-avatar.jpg" class="avatar" id="chatUserAvatar" alt="User Avatar" />
             <div class="user-details">
               <h3 id="chatUserName">John Robert</h3>
               <p>Online</p>
@@ -181,6 +182,11 @@
       </div>
     </div>
 
+
+
+    <script>
+        let myId = <?php echo $_SESSION['UID'] ?>
+    </script>
     <script src="chats.js"></script>
   </body>
 </html>

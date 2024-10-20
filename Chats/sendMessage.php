@@ -38,7 +38,7 @@ if (isset($_POST['messageType'])) {
             $innerStmt->bind_param("si", $content, $chatId);
             
             if ($innerStmt->execute()) {
-                echo json_encode(array('status' => 200, 'type' => $messageType, 'content' => $content, 'sender' => $sender, 'receiver' => $receiver));
+                echo json_encode(array('status' => 200, 'type' => $messageType, 'content' => $content, 'sender' => $sender, 'receiver' => $receiver, 'chat' => $chatId));
             } else {
                 echo json_encode("Failed to update chat");
             }

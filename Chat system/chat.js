@@ -194,7 +194,6 @@ function sendMessage(messageType, content, sender, receiver) {
 let displayedMessageIds = new Set();
 
 function updateChat(sender, receiver, lastTimeStamp) {
-    console.log('Atif');
 
     $.ajax({
         url: 'updateChat.php',

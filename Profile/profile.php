@@ -18,10 +18,11 @@
 
     $uid = $_SESSION['UID'];
 
-    $userName;
-    $userEmail;
-    $userImage;
-    $userExperience;
+    $userName = null;
+    $userEmail = null;
+    $userImage = null;
+    $userExperience = null;
+
 
   
 
