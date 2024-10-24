@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Taskker</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>Taskker Admin</h2>
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#user-management">User Management</a></li>
+          <li><a href="#task-management">Task Management</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="section">
+        <h1>Dashboard</h1>
+        <div class="cards">
+          <div class="card">
+            <h3>Total Users</h3>
+            <p>500</p>
+          </div>
+          <div class="card">
+            <h3>Total Tasks</h3>
+            <p>300</p>
+          </div>
+          <div class="card">
+            <h3>Revenue</h3>
+            <p>200,000 PKR</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- User Management Section -->
+      <section id="user-management" class="section">
+        <h1>User Management</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Ali</td>
+              <td>ali@gmail.com</td>
+              <td>Service Seeker</td>
+            </tr>
+            <!-- Additional rows here -->
+          </tbody>
+        </table>
+        <p></p>
+      </section>
+
+      <!-- Task Management Section -->
+      <section id="task-management" class="section">
+        <h1>Task Management</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Task ID</th>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>Fix Plumbing</td>
+              <td>Completed</td>
+              <td>Aslam</td>
+            </tr>
+            <!-- Additional rows here -->
+          </tbody>
+        </table>
+        <p></p>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

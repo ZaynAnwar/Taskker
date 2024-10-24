@@ -250,7 +250,7 @@
     </div>
     <div class="footer">
       <div class="footerin">
-        <div class="up">
+        <!-- <div class="up">
           <div class="box box1">
             <h1>Discover</h1>
             <div class="boxin">
@@ -308,7 +308,7 @@
               <a href="" target="#">Multan</a>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="down">
           <div class="first">
             <div class="box box1">

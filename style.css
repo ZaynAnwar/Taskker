@@ -449,11 +449,11 @@ img {
 
 /* Footer */
 .footer {
-  height: 84vh;
+  height: 25vh;
   width: 100%;
 }
 .footer .footerin {
-  height: 80vh;
+  height: 20vh;
   width: 95.7%;
   margin: 0 2vw;
   padding: 2vw;
@@ -465,7 +465,7 @@ img {
   flex-direction: column;
   gap: 0vh;
 }
-.footer .footerin .up {
+/* .footer .footerin .up {
   height: 50vh;
   width: 100%;
   display: flex;
@@ -498,7 +498,7 @@ img {
 }
 .footer .footerin .up .boxin a:hover {
   color: #14a800;
-}
+} */
 .footer .footerin .down {
   height: 30vh;
   width: 100%;
@@ -746,7 +746,7 @@ img {
    */
   /* Page 3 */
   .page3 {
-    height: 145vh;
+    height: 90vh;
     width: 100%;
     padding: 0 5vw;
     display: flex;
@@ -764,12 +764,13 @@ img {
     text-align: center;
     color: #54604c;
     font-size: 4vh;
+    letter-spacing: -1px;
     line-height: 50px;
     font-weight: 900;
   }
   .down {
     width: 100%;
-    height: 120vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -870,11 +871,11 @@ img {
    */
   /* Footer */
   .footer {
-    height: 63vh;
+    height: 17vh;
     width: 100%;
   }
   .footer .footerin {
-    height: 60vh;
+    height: 15vh;
     width: 95.7%;
     padding: 2vw;
     border-radius: 10px;
@@ -885,7 +886,7 @@ img {
     flex-direction: column;
     gap: 0vh;
   }
-  .footer .footerin .up {
+  /* .footer .footerin .up {
     height: 40vh;
     width: 100%;
     display: flex;
@@ -924,7 +925,7 @@ img {
   }
   .footer .footerin .up .boxin a:hover {
     color: #14a800;
-  }
+  } */
   .footer .footerin .down {
     height: 10vh;
   }
@@ -1549,7 +1550,7 @@ img {
    */
   /* Page 3 */
   .page3 {
-    height: 115vh;
+    height: 85vh;
     width: 100%;
     padding: 0 5vw;
     display: flex;
@@ -1685,11 +1686,11 @@ img {
    */
   /* Footer */
   .footer {
-    height: 63vh;
+    height: 18vh;
     width: 100%;
   }
   .footer .footerin {
-    height: 60vh;
+    height: 15vh;
     width: 95.7%;
     padding: 2vw;
     border-radius: 10px;
@@ -2190,11 +2191,11 @@ img {
   
   /* Footer */
   .footer {
-    height: 84vh;
+    height: 25vh;
     width: 100%;
   }
   .footer .footerin {
-    height: 80vh;
+    height: 20vh;
     width: 95.7%;
     margin: 0 2vw;
     padding: 2vw;
